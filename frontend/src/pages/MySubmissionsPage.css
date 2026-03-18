@@ -1,0 +1,50 @@
+.ic-my-subs {
+  max-width: 960px;
+  padding-top: 1rem;
+}
+
+.ic-new-btn {
+  background-color: #4361ee;
+  border-color: #4361ee;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.ic-new-btn:hover {
+  background-color: #3a56d4;
+  border-color: #3a56d4;
+}
+
+.ic-subs-table th {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #5a5a7a;
+  border-bottom-width: 2px;
+}
+
+.ic-outcome {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+}
+
+.ic-outcome-accepted {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.ic-outcome-rejected {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.ic-outcome-ghosted {
+  background-color: #e2e3e5;
+  color: #383d41;
+}
+
+.ic-outcome-pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
