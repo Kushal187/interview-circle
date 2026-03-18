@@ -196,10 +196,26 @@ async function deleteExperience(req, res) {
   }
 }
 
+async function getMyExperiences(req, res) {
+  try {
+    const db = await connectDB();
+    const experiences = await db
+      .collection("interviewExperiences")
+      .find({ createdBy: req.user._id })
+      .sort({ createdAt: -1 })
+      .toArray();
+
+    res.json({ experiences });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch your experiences" });
+  }
+}
+
 export {
   createExperience,
   getAllExperiences,
   getExperienceById,
   updateExperience,
   deleteExperience,
+  getMyExperiences,
 };
