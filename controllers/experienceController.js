@@ -57,9 +57,21 @@ async function getAllExperiences(req, res) {
     const limit = parseInt(req.query.limit) || 20;
     const skip = (page - 1) * limit;
 
+    const filter = {};
+
+    if (req.query.company) {
+      filter.company = { $regex: req.query.company, $options: "i" };
+    }
+    if (req.query.role) {
+      filter.role = { $regex: req.query.role, $options: "i" };
+    }
+    if (req.query.round) {
+      filter.interviewRound = req.query.round;
+    }
+
     const experiences = await db
       .collection("interviewExperiences")
-      .find({})
+      .find(filter)
       .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limit)
@@ -67,7 +79,7 @@ async function getAllExperiences(req, res) {
 
     const total = await db
       .collection("interviewExperiences")
-      .countDocuments({});
+      .countDocuments(filter);
 
     res.json({
       experiences,
