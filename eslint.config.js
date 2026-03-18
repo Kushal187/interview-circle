@@ -2,6 +2,7 @@ import js from "@eslint/js";
 import globals from "globals";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
+import prettierConfig from "eslint-config-prettier";
 import { defineConfig } from "eslint/config";
 
 export default defineConfig([
@@ -22,6 +23,7 @@ export default defineConfig([
     rules: {
       ...react.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
+      ...prettierConfig.rules,
       "react/react-in-jsx-scope": "off",
     },
   },
@@ -38,5 +40,8 @@ export default defineConfig([
     plugins: { js },
     extends: ["js/recommended"],
     languageOptions: { globals: globals.node },
+    rules: {
+      ...prettierConfig.rules,
+    },
   },
 ]);

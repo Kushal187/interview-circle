@@ -7,13 +7,19 @@
 }
 
 body {
-  font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    "Instrument Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   background-color: #faf8f4;
   color: #1e1c19;
   line-height: 1.6;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: "Newsreader", Georgia, serif;
   letter-spacing: -0.02em;
 }

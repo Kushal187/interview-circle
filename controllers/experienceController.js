@@ -45,7 +45,7 @@ async function createExperience(req, res) {
 
     const result = await db.collection("interviewExperiences").insertOne(doc);
     res.status(201).json({ ...doc, _id: result.insertedId });
-  } catch (err) {
+  } catch {
     res.status(500).json({ error: "Failed to create experience" });
   }
 }
@@ -62,7 +62,10 @@ async function getAllExperiences(req, res) {
     const filter = {};
 
     if (req.query.company) {
-      filter.company = { $regex: escapeRegex(req.query.company), $options: "i" };
+      filter.company = {
+        $regex: escapeRegex(req.query.company),
+        $options: "i",
+      };
     }
     if (req.query.role) {
       filter.role = { $regex: escapeRegex(req.query.role), $options: "i" };
@@ -173,7 +176,7 @@ async function getAllExperiences(req, res) {
       totalPages: Math.ceil(total / limit),
       total,
     });
-  } catch (err) {
+  } catch {
     res.status(500).json({ error: "Failed to fetch experiences" });
   }
 }
@@ -185,16 +188,33 @@ async function getExperienceById(req, res) {
     }
 
     const db = await connectDB();
-    const experience = await db
+    const results = await db
       .collection("interviewExperiences")
-      .findOne({ _id: new ObjectId(req.params.id) });
+      .aggregate([
+        { $match: { _id: new ObjectId(req.params.id) } },
+        {
+          $lookup: {
+            from: "users",
+            localField: "createdBy",
+            foreignField: "_id",
+            as: "author",
+          },
+        },
+        {
+          $addFields: {
+            username: { $arrayElemAt: ["$author.username", 0] },
+          },
+        },
+        { $project: { author: 0 } },
+      ])
+      .toArray();
 
-    if (!experience) {
+    if (results.length === 0) {
       return res.status(404).json({ error: "Experience not found" });
     }
 
-    res.json(experience);
-  } catch (err) {
+    res.json(results[0]);
+  } catch {
     res.status(500).json({ error: "Failed to fetch experience" });
   }
 }
@@ -258,7 +278,7 @@ async function updateExperience(req, res) {
       .findOne({ _id: new ObjectId(req.params.id) });
 
     res.json(updated);
-  } catch (err) {
+  } catch {
     res.status(500).json({ error: "Failed to update experience" });
   }
 }
@@ -292,7 +312,7 @@ async function deleteExperience(req, res) {
       .deleteMany({ experienceId: expObjId });
 
     res.json({ message: "Experience deleted" });
-  } catch (err) {
+  } catch {
     res.status(500).json({ error: "Failed to delete experience" });
   }
 }
@@ -307,7 +327,7 @@ async function getMyExperiences(req, res) {
       .toArray();
 
     res.json({ experiences });
-  } catch (err) {
+  } catch {
     res.status(500).json({ error: "Failed to fetch your experiences" });
   }
 }

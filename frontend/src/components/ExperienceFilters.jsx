@@ -3,7 +3,14 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 import PropTypes from "prop-types";
 import "./ExperienceFilters.css";
 
-const ROUNDS = ["Phone Screen", "Online Assessment", "Onsite", "Take Home", "Final Round", "Other"];
+const ROUNDS = [
+  "Phone Screen",
+  "Online Assessment",
+  "Onsite",
+  "Take Home",
+  "Final Round",
+  "Other",
+];
 
 function ExperienceFilters({ onFilter }) {
   const [company, setCompany] = useState("");
@@ -57,7 +64,9 @@ function ExperienceFilters({ onFilter }) {
             >
               <option value="">All rounds</option>
               {ROUNDS.map((r) => (
-                <option key={r} value={r}>{r}</option>
+                <option key={r} value={r}>
+                  {r}
+                </option>
               ))}
             </Form.Select>
           </Form.Group>

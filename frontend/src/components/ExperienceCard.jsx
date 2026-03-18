@@ -37,7 +37,9 @@ function ExperienceCard({ experience }) {
             </Link>
             <p className="ic-exp-role mb-0">{experience.role}</p>
           </div>
-          <Badge bg={DIFFICULTY_COLORS[experience.difficultyLevel] || "secondary"}>
+          <Badge
+            bg={DIFFICULTY_COLORS[experience.difficultyLevel] || "secondary"}
+          >
             {experience.difficultyLevel}
           </Badge>
         </div>

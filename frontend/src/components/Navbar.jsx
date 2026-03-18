@@ -1,11 +1,6 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  Navbar as BSNavbar,
-  Nav,
-  Container,
-  Button,
-} from "react-bootstrap";
+import { Navbar as BSNavbar, Nav, Container, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { UserContext } from "../context/UserContext";
 import "./Navbar.css";

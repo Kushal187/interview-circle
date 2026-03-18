@@ -3,8 +3,22 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 import PropTypes from "prop-types";
 import "./ExperienceForm.css";
 
-const ROUNDS = ["Phone Screen", "Online Assessment", "Onsite", "Take Home", "Final Round", "Other"];
-const FORMATS = ["Technical", "Behavioral", "System Design", "Live Coding", "Mixed", "Other"];
+const ROUNDS = [
+  "Phone Screen",
+  "Online Assessment",
+  "Onsite",
+  "Take Home",
+  "Final Round",
+  "Other",
+];
+const FORMATS = [
+  "Technical",
+  "Behavioral",
+  "System Design",
+  "Live Coding",
+  "Mixed",
+  "Other",
+];
 const DIFFICULTIES = ["Easy", "Medium", "Hard"];
 const OUTCOMES = ["Accepted", "Rejected", "Ghosted", "Pending"];
 
@@ -50,7 +64,12 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
     e.preventDefault();
     setError("");
 
-    if (!company.trim() || !role.trim() || !interviewRound || !difficultyLevel) {
+    if (
+      !company.trim() ||
+      !role.trim() ||
+      !interviewRound ||
+      !difficultyLevel
+    ) {
       setError("Company, role, round, and difficulty are required.");
       return;
     }
@@ -120,7 +139,9 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
             >
               <option value="">Select round</option>
               {ROUNDS.map((r) => (
-                <option key={r} value={r}>{r}</option>
+                <option key={r} value={r}>
+                  {r}
+                </option>
               ))}
             </Form.Select>
           </Form.Group>
@@ -134,7 +155,9 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
             >
               <option value="">Select format</option>
               {FORMATS.map((f) => (
-                <option key={f} value={f}>{f}</option>
+                <option key={f} value={f}>
+                  {f}
+                </option>
               ))}
             </Form.Select>
           </Form.Group>
@@ -149,7 +172,9 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
             >
               <option value="">Select difficulty</option>
               {DIFFICULTIES.map((d) => (
-                <option key={d} value={d}>{d}</option>
+                <option key={d} value={d}>
+                  {d}
+                </option>
               ))}
             </Form.Select>
           </Form.Group>
@@ -193,7 +218,9 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
               onChange={(e) => setOutcomeTag(e.target.value)}
             >
               {OUTCOMES.map((o) => (
-                <option key={o} value={o}>{o}</option>
+                <option key={o} value={o}>
+                  {o}
+                </option>
               ))}
             </Form.Select>
           </Form.Group>

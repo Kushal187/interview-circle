@@ -71,15 +71,15 @@ function ExperienceDetailPage() {
 
   const formattedDate = experience.experienceDate
     ? new Date(experience.experienceDate).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    })
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
     : "Not specified";
 
   const difficultyClass =
     { Easy: "success", Medium: "warning", Hard: "danger" }[
-    experience.difficultyLevel
+      experience.difficultyLevel
     ] || "secondary";
 
   const outcomeClass =
@@ -111,11 +111,7 @@ function ExperienceDetailPage() {
             >
               Edit
             </Button>
-            <Button
-              size="sm"
-              variant="outline-danger"
-              onClick={handleDelete}
-            >
+            <Button size="sm" variant="outline-danger" onClick={handleDelete}>
               Delete
             </Button>
           </div>
@@ -137,9 +133,7 @@ function ExperienceDetailPage() {
         </p>
         <p>
           <strong>Posted by:</strong>{" "}
-          {experience.isAnonymous
-            ? "Anonymous"
-            : experience.username || "User"}
+          {experience.isAnonymous ? "Anonymous" : experience.username || "User"}
         </p>
       </div>
 

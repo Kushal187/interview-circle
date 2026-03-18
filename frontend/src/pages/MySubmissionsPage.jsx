@@ -79,12 +79,17 @@ function MySubmissionsPage() {
                 <td>{exp.interviewRound}</td>
                 <td>{exp.difficultyLevel}</td>
                 <td>
-                  <span className={`ic-outcome ic-outcome-${exp.outcomeTag.toLowerCase()}`}>
+                  <span
+                    className={`ic-outcome ic-outcome-${exp.outcomeTag.toLowerCase()}`}
+                  >
                     {exp.outcomeTag}
                   </span>
                 </td>
                 <td>
-                  <Link to={`/edit/${exp._id}`} className="btn btn-sm btn-outline-primary me-2">
+                  <Link
+                    to={`/edit/${exp._id}`}
+                    className="btn btn-sm btn-outline-primary me-2"
+                  >
                     Edit
                   </Link>
                   <Button

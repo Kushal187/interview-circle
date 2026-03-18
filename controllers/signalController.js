@@ -41,7 +41,7 @@ async function getSignals(req, res) {
       outdatedCount: counts.outdatedCount,
       userSignal,
     });
-  } catch (err) {
+  } catch {
     res.status(500).json({ error: "Failed to fetch signals" });
   }
 }
@@ -52,9 +52,7 @@ async function createSignal(req, res) {
     const { experienceId, helpful, outdated } = req.body;
 
     if (!experienceId || !ObjectId.isValid(experienceId)) {
-      return res
-        .status(400)
-        .json({ error: "Valid experienceId is required" });
+      return res.status(400).json({ error: "Valid experienceId is required" });
     }
 
     const expObjId = new ObjectId(experienceId);
@@ -90,12 +88,10 @@ async function createSignal(req, res) {
       updatedAt: now,
     };
 
-    const result = await db
-      .collection("experienceSignals")
-      .insertOne(doc);
+    const result = await db.collection("experienceSignals").insertOne(doc);
 
     res.status(201).json({ ...doc, _id: result.insertedId });
-  } catch (err) {
+  } catch {
     res.status(500).json({ error: "Failed to create signal" });
   }
 }
@@ -137,7 +133,7 @@ async function updateSignal(req, res) {
       .findOne({ _id: existing._id });
 
     res.json(updated);
-  } catch (err) {
+  } catch {
     res.status(500).json({ error: "Failed to update signal" });
   }
 }
@@ -161,7 +157,7 @@ async function deleteSignal(req, res) {
     }
 
     res.json({ message: "Signal removed" });
-  } catch (err) {
+  } catch {
     res.status(500).json({ error: "Failed to delete signal" });
   }
 }

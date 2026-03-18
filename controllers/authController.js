@@ -52,7 +52,7 @@ async function register(req, res) {
         user: { _id: user._id, username: user.username, email: user.email },
       });
     });
-  } catch (err) {
+  } catch {
     res.status(500).json({ error: "Registration failed" });
   }
 }
