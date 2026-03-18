@@ -101,4 +101,105 @@ async function getExperienceById(req, res) {
   }
 }
 
-export { createExperience, getAllExperiences, getExperienceById };
+async function updateExperience(req, res) {
+  try {
+    if (!ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ error: "Invalid experience ID" });
+    }
+
+    const db = await connectDB();
+    const experience = await db
+      .collection("interviewExperiences")
+      .findOne({ _id: new ObjectId(req.params.id) });
+
+    if (!experience) {
+      return res.status(404).json({ error: "Experience not found" });
+    }
+
+    if (experience.createdBy.toString() !== req.user._id.toString()) {
+      return res
+        .status(403)
+        .json({ error: "You can only edit your own experiences" });
+    }
+
+    const {
+      company,
+      role,
+      interviewRound,
+      interviewFormat,
+      questionThemes,
+      difficultyLevel,
+      formatNotes,
+      caughtOffGuardNotes,
+      outcomeTag,
+      experienceDate,
+      isAnonymous,
+    } = req.body;
+
+    const updates = {
+      ...(company && { company: company.trim() }),
+      ...(role && { role: role.trim() }),
+      ...(interviewRound && { interviewRound }),
+      ...(interviewFormat !== undefined && { interviewFormat }),
+      ...(questionThemes && { questionThemes }),
+      ...(difficultyLevel && { difficultyLevel }),
+      ...(formatNotes !== undefined && { formatNotes }),
+      ...(caughtOffGuardNotes !== undefined && { caughtOffGuardNotes }),
+      ...(outcomeTag && { outcomeTag }),
+      ...(experienceDate && { experienceDate: new Date(experienceDate) }),
+      ...(isAnonymous !== undefined && { isAnonymous: !!isAnonymous }),
+      updatedAt: new Date(),
+    };
+
+    await db
+      .collection("interviewExperiences")
+      .updateOne({ _id: new ObjectId(req.params.id) }, { $set: updates });
+
+    const updated = await db
+      .collection("interviewExperiences")
+      .findOne({ _id: new ObjectId(req.params.id) });
+
+    res.json(updated);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to update experience" });
+  }
+}
+
+async function deleteExperience(req, res) {
+  try {
+    if (!ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ error: "Invalid experience ID" });
+    }
+
+    const db = await connectDB();
+    const experience = await db
+      .collection("interviewExperiences")
+      .findOne({ _id: new ObjectId(req.params.id) });
+
+    if (!experience) {
+      return res.status(404).json({ error: "Experience not found" });
+    }
+
+    if (experience.createdBy.toString() !== req.user._id.toString()) {
+      return res
+        .status(403)
+        .json({ error: "You can only delete your own experiences" });
+    }
+
+    await db
+      .collection("interviewExperiences")
+      .deleteOne({ _id: new ObjectId(req.params.id) });
+
+    res.json({ message: "Experience deleted" });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to delete experience" });
+  }
+}
+
+export {
+  createExperience,
+  getAllExperiences,
+  getExperienceById,
+  updateExperience,
+  deleteExperience,
+};
