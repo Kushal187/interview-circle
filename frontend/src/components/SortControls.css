@@ -1,0 +1,18 @@
+.ic-sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ic-sort-label {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #5a5a7a;
+  white-space: nowrap;
+  margin-bottom: 0;
+}
+
+.ic-sort-select {
+  min-width: 150px;
+  border-radius: 6px;
+}
