@@ -1,3 +1,4 @@
+import { ObjectId } from "mongodb";
 import connectDB from "../db/connectDB.js";
 
 async function createExperience(req, res) {
@@ -49,4 +50,55 @@ async function createExperience(req, res) {
   }
 }
 
-export { createExperience };
+async function getAllExperiences(req, res) {
+  try {
+    const db = await connectDB();
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 20;
+    const skip = (page - 1) * limit;
+
+    const experiences = await db
+      .collection("interviewExperiences")
+      .find({})
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit)
+      .toArray();
+
+    const total = await db
+      .collection("interviewExperiences")
+      .countDocuments({});
+
+    res.json({
+      experiences,
+      page,
+      totalPages: Math.ceil(total / limit),
+      total,
+    });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch experiences" });
+  }
+}
+
+async function getExperienceById(req, res) {
+  try {
+    if (!ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ error: "Invalid experience ID" });
+    }
+
+    const db = await connectDB();
+    const experience = await db
+      .collection("interviewExperiences")
+      .findOne({ _id: new ObjectId(req.params.id) });
+
+    if (!experience) {
+      return res.status(404).json({ error: "Experience not found" });
+    }
+
+    res.json(experience);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch experience" });
+  }
+}
+
+export { createExperience, getAllExperiences, getExperienceById };
