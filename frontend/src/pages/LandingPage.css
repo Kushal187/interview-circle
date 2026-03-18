@@ -195,57 +195,6 @@
   color: var(--lp-muted);
 }
 
-/* ── Example card ── */
-
-.lp-example {
-  padding: 4rem 0;
-  border-top: 1px solid var(--lp-border);
-}
-
-.lp-example-card {
-  background: #fff;
-  border: 1px solid rgba(104, 95, 84, 0.13);
-  border-radius: 10px;
-  padding: 1.6rem 1.8rem;
-  max-width: 620px;
-}
-
-.lp-example-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.lp-example-tag {
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 0.25rem 0.6rem;
-  border-radius: 5px;
-  background: rgba(104, 95, 84, 0.09);
-  color: var(--lp-muted);
-  letter-spacing: 0.01em;
-}
-
-.lp-tag-outcome {
-  background: rgba(56, 118, 62, 0.1);
-  color: #2e6e33;
-}
-
-.lp-example-body {
-  font-size: 0.93rem;
-  line-height: 1.65;
-  color: #3b332b;
-  font-style: italic;
-  margin-bottom: 0.9rem;
-}
-
-.lp-example-note {
-  font-size: 0.8rem;
-  color: var(--lp-muted);
-  margin: 0;
-}
-
 /* ── Why section ── */
 
 .lp-why {
@@ -270,24 +219,6 @@
 
 .lp-why-right p:last-child {
   margin-bottom: 0;
-}
-
-/* ── Bottom CTA ── */
-
-.lp-cta {
-  padding: 4.5rem 0;
-  border-top: 1px solid var(--lp-border);
-}
-
-.lp-cta-heading {
-  font-family: "Newsreader", Georgia, serif;
-  font-weight: 600;
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  letter-spacing: -0.025em;
-  color: var(--lp-ink);
-  margin-bottom: 1.2rem;
-  max-width: 540px;
-  text-wrap: balance;
 }
 
 /* ── Footer ── */
@@ -334,9 +265,7 @@
 
   .lp-pitch,
   .lp-how,
-  .lp-example,
-  .lp-why,
-  .lp-cta {
+  .lp-why {
     padding: 3rem 0;
   }
 }
@@ -352,10 +281,6 @@
 
   .lp-btn-primary {
     width: 100%;
-  }
-
-  .lp-example-card {
-    padding: 1.2rem 1.1rem;
   }
 
   .lp-footer .lp-section-inner {

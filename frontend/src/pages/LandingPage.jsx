@@ -110,36 +110,6 @@ function LandingPage() {
         </div>
       </section>
 
-      <section className="lp-example">
-        <div className="lp-section-inner">
-          <h2 className="lp-section-heading">The kind of detail that helps</h2>
-          <p className="lp-section-sub">
-            Here's what a typical experience post covers — the stuff
-            you actually want to know before your interview.
-          </p>
-          <div className="lp-example-card">
-            <div className="lp-example-meta">
-              <span className="lp-example-tag">SWE &middot; Onsite</span>
-              <span className="lp-example-tag">Medium difficulty</span>
-              <span className="lp-example-tag lp-tag-outcome">Got the offer</span>
-            </div>
-            <p className="lp-example-body">
-              "Phone screen was 45 min, mostly behavioral with one easy
-              coding question. Onsite was four rounds back to back —
-              two system design, one coding, one hiring manager chat.
-              The system design rounds were conversational, not
-              whiteboard-heavy. Got the offer call six days later.
-              Total process took about three weeks from first recruiter
-              email to offer."
-            </p>
-            <p className="lp-example-note">
-              This is a sample. Real posts include the company name,
-              role title, and are written by verified users.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section className="lp-why">
         <div className="lp-section-inner">
           <div className="lp-why-layout">
@@ -162,32 +132,6 @@ function LandingPage() {
                 no distractions. One thing, done well.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="lp-cta">
-        <div className="lp-section-inner">
-          <h2 className="lp-cta-heading">
-            {user
-              ? "You've been through an interview recently. Write it up."
-              : "Your next interview doesn't have to be a black box."}
-          </h2>
-          <div className="lp-hero-actions">
-            {user ? (
-              <Link to="/submit" className="lp-btn-primary">
-                Share your experience
-              </Link>
-            ) : (
-              <>
-                <Link to="/browse" className="lp-btn-primary">
-                  Start browsing
-                </Link>
-                <Link to="/register" className="lp-text-link">
-                  or create an account
-                </Link>
-              </>
-            )}
           </div>
         </div>
       </section>

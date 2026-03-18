@@ -7,29 +7,32 @@
 .ic-auth-card {
   width: 100%;
   max-width: 420px;
-  border: 1px solid #e2e0dc;
+  border: 1px solid #ddd8d0;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  background: #fff;
 }
 
 .ic-auth-title {
-  font-weight: 700;
+  font-family: "Newsreader", Georgia, serif;
+  font-weight: 600;
   font-size: 1.5rem;
+  letter-spacing: -0.02em;
   margin-bottom: 1.25rem;
-  color: #2d2d2d;
+  color: #1e1c19;
 }
 
 .ic-auth-btn {
-  background-color: #222;
-  border-color: #222;
+  background-color: #1e1c19;
+  border-color: #1e1c19;
   border-radius: 8px;
   font-weight: 600;
   padding: 0.55rem;
 }
 
 .ic-auth-btn:hover {
-  background-color: #333;
-  border-color: #333;
+  background-color: #2e2a26;
+  border-color: #2e2a26;
 }
 
 .ic-auth-btn:disabled {
@@ -41,5 +44,5 @@
   margin-top: 1.25rem;
   margin-bottom: 0;
   font-size: 0.9rem;
-  color: #6b6b6b;
+  color: #756b60;
 }

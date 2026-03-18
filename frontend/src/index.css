@@ -8,18 +8,23 @@
 
 body {
   font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: #fafaf8;
-  color: #2d2d2d;
+  background-color: #faf8f4;
+  color: #1e1c19;
   line-height: 1.6;
 }
 
+h1, h2, h3 {
+  font-family: "Newsreader", Georgia, serif;
+  letter-spacing: -0.02em;
+}
+
 a {
-  color: #c45d3e;
+  color: #9b5740;
   text-decoration: none;
 }
 
 a:hover {
-  color: #a94e34;
+  color: #7a4430;
 }
 
 .alert {
@@ -28,33 +33,33 @@ a:hover {
 }
 
 .btn-primary {
-  --bs-btn-bg: #222;
-  --bs-btn-border-color: #222;
-  --bs-btn-hover-bg: #333;
-  --bs-btn-hover-border-color: #333;
-  --bs-btn-active-bg: #111;
-  --bs-btn-active-border-color: #111;
+  --bs-btn-bg: #1e1c19;
+  --bs-btn-border-color: #1e1c19;
+  --bs-btn-hover-bg: #2e2a26;
+  --bs-btn-hover-border-color: #2e2a26;
+  --bs-btn-active-bg: #141210;
+  --bs-btn-active-border-color: #141210;
   --bs-btn-disabled-bg: #555;
   --bs-btn-disabled-border-color: #555;
 }
 
 .btn-outline-primary {
-  --bs-btn-color: #222;
-  --bs-btn-border-color: #222;
-  --bs-btn-hover-bg: #222;
-  --bs-btn-hover-border-color: #222;
-  --bs-btn-hover-color: #fff;
-  --bs-btn-active-bg: #111;
-  --bs-btn-active-border-color: #111;
-  --bs-btn-active-color: #fff;
+  --bs-btn-color: #1e1c19;
+  --bs-btn-border-color: #1e1c19;
+  --bs-btn-hover-bg: #1e1c19;
+  --bs-btn-hover-border-color: #1e1c19;
+  --bs-btn-hover-color: #faf8f4;
+  --bs-btn-active-bg: #141210;
+  --bs-btn-active-border-color: #141210;
+  --bs-btn-active-color: #faf8f4;
 }
 
 .badge.bg-primary {
-  background-color: #222 !important;
+  background-color: #1e1c19 !important;
 }
 
 .form-control:focus,
 .form-select:focus {
-  border-color: #999;
-  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
+  border-color: #a09889;
+  box-shadow: 0 0 0 0.2rem rgba(30, 28, 25, 0.08);
 }

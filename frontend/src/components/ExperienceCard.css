@@ -1,28 +1,30 @@
 .ic-exp-card {
-  border: 1px solid #e2e0dc;
+  border: 1px solid #ddd8d0;
   border-radius: 10px;
   margin-bottom: 1rem;
   transition: box-shadow 0.15s;
 }
 
 .ic-exp-card:hover {
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 14px rgba(30, 28, 25, 0.06);
 }
 
 .ic-exp-company {
+  font-family: "Newsreader", Georgia, serif;
   font-weight: 700;
   font-size: 1.1rem;
-  color: #2d2d2d;
+  letter-spacing: -0.015em;
+  color: #1e1c19;
   text-decoration: none;
 }
 
 .ic-exp-company:hover {
-  color: #c45d3e;
+  color: #9b5740;
 }
 
 .ic-exp-role {
   font-size: 0.92rem;
-  color: #6b6b6b;
+  color: #756b60;
 }
 
 .ic-exp-meta {
@@ -36,8 +38,8 @@
 .ic-exp-round,
 .ic-exp-format {
   font-size: 0.82rem;
-  color: #6b6b6b;
-  background-color: #f0efec;
+  color: #756b60;
+  background-color: #efece7;
   padding: 0.15rem 0.5rem;
   border-radius: 6px;
 }
@@ -55,8 +57,8 @@
 
 .ic-exp-theme-tag {
   font-size: 0.78rem;
-  background-color: #f5ede8;
-  color: #c45d3e;
+  background-color: #f0e8e2;
+  color: #9b5740;
   padding: 0.15rem 0.5rem;
   border-radius: 10px;
   font-weight: 500;
@@ -67,7 +69,7 @@
   align-items: center;
   gap: 0.75rem;
   font-size: 0.8rem;
-  color: #888;
+  color: #998f84;
 }
 
 .ic-exp-anon {

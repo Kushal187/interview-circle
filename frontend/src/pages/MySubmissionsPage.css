@@ -4,21 +4,21 @@
 }
 
 .ic-new-btn {
-  background-color: #222;
-  border-color: #222;
+  background-color: #1e1c19;
+  border-color: #1e1c19;
   font-weight: 600;
   border-radius: 8px;
 }
 
 .ic-new-btn:hover {
-  background-color: #333;
-  border-color: #333;
+  background-color: #2e2a26;
+  border-color: #2e2a26;
 }
 
 .ic-subs-table th {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #6b6b6b;
+  color: #756b60;
   border-bottom-width: 2px;
 }
 
@@ -30,21 +30,21 @@
 }
 
 .ic-outcome-accepted {
-  background-color: #d4edda;
-  color: #155724;
+  background-color: #dae8d9;
+  color: #2e6e33;
 }
 
 .ic-outcome-rejected {
-  background-color: #f8d7da;
-  color: #721c24;
+  background-color: #f3d5d5;
+  color: #7a2424;
 }
 
 .ic-outcome-ghosted {
-  background-color: #e2e3e5;
-  color: #383d41;
+  background-color: #e4dfda;
+  color: #3b352e;
 }
 
 .ic-outcome-pending {
-  background-color: #fff3cd;
-  color: #856404;
+  background-color: #f0e6cc;
+  color: #7a6020;
 }

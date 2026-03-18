@@ -1,6 +1,6 @@
 .ic-filters {
   background-color: #fff;
-  border: 1px solid #e2e0dc;
+  border: 1px solid #ddd8d0;
   border-radius: 10px;
   padding: 1rem 1.25rem;
   margin-bottom: 1.5rem;
@@ -9,16 +9,16 @@
 .ic-filter-label {
   font-size: 0.82rem;
   font-weight: 600;
-  color: #6b6b6b;
+  color: #756b60;
 }
 
 .ic-filter-btn {
-  background-color: #222;
-  border-color: #222;
+  background-color: #1e1c19;
+  border-color: #1e1c19;
   font-weight: 600;
 }
 
 .ic-filter-btn:hover {
-  background-color: #333;
-  border-color: #333;
+  background-color: #2e2a26;
+  border-color: #2e2a26;
 }

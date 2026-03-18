@@ -1,5 +1,5 @@
 .ic-navbar {
-  background-color: #1d1d1d;
+  background-color: #1e1c19;
   padding: 0.75rem 0;
 }
 
@@ -16,6 +16,7 @@
 }
 
 .ic-navbar-brand {
+  font-family: "Newsreader", Georgia, serif;
   font-weight: 700;
   font-size: 1.3rem;
   letter-spacing: -0.02em;
