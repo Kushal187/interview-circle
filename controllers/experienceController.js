@@ -56,6 +56,7 @@ async function getAllExperiences(req, res) {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 20;
     const skip = (page - 1) * limit;
+    const sort = req.query.sort || "newest";
 
     const filter = {};
 
@@ -69,6 +70,60 @@ async function getAllExperiences(req, res) {
       filter.interviewRound = req.query.round;
     }
 
+    if (sort === "helpful") {
+      const pipeline = [
+        { $match: filter },
+        {
+          $lookup: {
+            from: "experienceSignals",
+            localField: "_id",
+            foreignField: "experienceId",
+            as: "signals",
+          },
+        },
+        {
+          $addFields: {
+            helpfulCount: {
+              $size: {
+                $filter: {
+                  input: "$signals",
+                  cond: { $eq: ["$$this.helpful", true] },
+                },
+              },
+            },
+            outdatedCount: {
+              $size: {
+                $filter: {
+                  input: "$signals",
+                  cond: { $eq: ["$$this.outdated", true] },
+                },
+              },
+            },
+          },
+        },
+        { $sort: { helpfulCount: -1, createdAt: -1 } },
+        { $skip: skip },
+        { $limit: limit },
+        { $project: { signals: 0 } },
+      ];
+
+      const experiences = await db
+        .collection("interviewExperiences")
+        .aggregate(pipeline)
+        .toArray();
+
+      const total = await db
+        .collection("interviewExperiences")
+        .countDocuments(filter);
+
+      return res.json({
+        experiences,
+        page,
+        totalPages: Math.ceil(total / limit),
+        total,
+      });
+    }
+
     const experiences = await db
       .collection("interviewExperiences")
       .find(filter)
@@ -77,12 +132,42 @@ async function getAllExperiences(req, res) {
       .limit(limit)
       .toArray();
 
+    // attach signal counts for default sort too
+    const expIds = experiences.map((e) => e._id);
+    const signalAgg = await db
+      .collection("experienceSignals")
+      .aggregate([
+        { $match: { experienceId: { $in: expIds } } },
+        {
+          $group: {
+            _id: "$experienceId",
+            helpfulCount: { $sum: { $cond: ["$helpful", 1, 0] } },
+            outdatedCount: { $sum: { $cond: ["$outdated", 1, 0] } },
+          },
+        },
+      ])
+      .toArray();
+
+    const signalMap = {};
+    for (const s of signalAgg) {
+      signalMap[s._id.toString()] = s;
+    }
+
+    const enriched = experiences.map((e) => {
+      const sig = signalMap[e._id.toString()];
+      return {
+        ...e,
+        helpfulCount: sig?.helpfulCount || 0,
+        outdatedCount: sig?.outdatedCount || 0,
+      };
+    });
+
     const total = await db
       .collection("interviewExperiences")
       .countDocuments(filter);
 
     res.json({
-      experiences,
+      experiences: enriched,
       page,
       totalPages: Math.ceil(total / limit),
       total,
