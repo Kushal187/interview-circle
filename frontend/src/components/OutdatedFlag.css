@@ -1,0 +1,17 @@
+.ic-outdated-flag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ic-outdated-btn {
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.ic-outdated-flag .ic-outdated-count {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #e5a100;
+}
