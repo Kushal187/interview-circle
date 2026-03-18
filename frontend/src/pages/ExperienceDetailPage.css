@@ -6,12 +6,12 @@
 .ic-back-link {
   display: inline-block;
   font-size: 0.88rem;
-  color: #5a5a7a;
+  color: #6b6b6b;
   margin-bottom: 1.25rem;
 }
 
 .ic-back-link:hover {
-  color: #4361ee;
+  color: #c45d3e;
 }
 
 .ic-detail-header {
@@ -24,14 +24,14 @@
 .ic-detail-company {
   font-weight: 700;
   font-size: 1.75rem;
-  color: #1a1a2e;
+  color: #2d2d2d;
   margin-bottom: 0.15rem;
 }
 
 .ic-detail-role {
   font-size: 1.1rem;
   font-weight: 400;
-  color: #5a5a7a;
+  color: #6b6b6b;
 }
 
 .ic-detail-actions {
@@ -50,7 +50,7 @@
 .ic-detail-info {
   margin-bottom: 1.25rem;
   font-size: 0.92rem;
-  color: #3a3a5a;
+  color: #4a4a4a;
 }
 
 .ic-detail-info p {
@@ -64,13 +64,13 @@
 .ic-detail-section h3 {
   font-size: 1rem;
   font-weight: 600;
-  color: #1a1a2e;
+  color: #2d2d2d;
   margin-bottom: 0.5rem;
 }
 
 .ic-detail-section p {
   font-size: 0.92rem;
-  color: #3a3a5a;
+  color: #4a4a4a;
   line-height: 1.6;
 }
 
@@ -81,7 +81,7 @@
 }
 
 .ic-theme-tag {
-  border: 1px solid #d0d3da;
+  border: 1px solid #d0d0ca;
   font-size: 0.82rem;
   font-weight: 400;
 }
@@ -91,5 +91,5 @@
   gap: 1.5rem;
   margin-top: 2rem;
   padding-top: 1.25rem;
-  border-top: 1px solid #e4e6eb;
+  border-top: 1px solid #e2e0dc;
 }

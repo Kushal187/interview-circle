@@ -24,7 +24,7 @@ function LoginPage() {
     setSubmitting(true);
     try {
       await login(username.trim(), password);
-      navigate("/");
+      navigate("/browse");
     } catch (err) {
       setError(err.message);
     } finally {

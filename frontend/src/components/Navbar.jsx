@@ -6,10 +6,11 @@ import {
   Container,
   Button,
 } from "react-bootstrap";
+import PropTypes from "prop-types";
 import { UserContext } from "../context/UserContext";
 import "./Navbar.css";
 
-function Navbar() {
+function Navbar({ transparent = false }) {
   const { user, logout } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -19,7 +20,11 @@ function Navbar() {
   };
 
   return (
-    <BSNavbar className="ic-navbar" expand="md" data-bs-theme="dark">
+    <BSNavbar
+      className={`ic-navbar${transparent ? " ic-navbar-transparent" : ""}`}
+      expand="md"
+      data-bs-theme={transparent ? "light" : "dark"}
+    >
       <Container>
         <BSNavbar.Brand as={Link} to="/" className="ic-navbar-brand">
           InterviewCircle
@@ -27,7 +32,7 @@ function Navbar() {
         <BSNavbar.Toggle aria-controls="main-nav" />
         <BSNavbar.Collapse id="main-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">
+            <Nav.Link as={Link} to="/browse">
               Browse
             </Nav.Link>
             {user && (
@@ -71,5 +76,9 @@ function Navbar() {
     </BSNavbar>
   );
 }
+
+Navbar.propTypes = {
+  transparent: PropTypes.bool,
+};
 
 export default Navbar;

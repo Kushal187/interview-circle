@@ -7,7 +7,7 @@
 .ic-auth-card {
   width: 100%;
   max-width: 420px;
-  border: 1px solid #e4e6eb;
+  border: 1px solid #e2e0dc;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
 }
@@ -16,20 +16,20 @@
   font-weight: 700;
   font-size: 1.5rem;
   margin-bottom: 1.25rem;
-  color: #1a1a2e;
+  color: #2d2d2d;
 }
 
 .ic-auth-btn {
-  background-color: #4361ee;
-  border-color: #4361ee;
+  background-color: #222;
+  border-color: #222;
   border-radius: 8px;
   font-weight: 600;
   padding: 0.55rem;
 }
 
 .ic-auth-btn:hover {
-  background-color: #3a56d4;
-  border-color: #3a56d4;
+  background-color: #333;
+  border-color: #333;
 }
 
 .ic-auth-btn:disabled {
@@ -41,5 +41,5 @@
   margin-top: 1.25rem;
   margin-bottom: 0;
   font-size: 0.9rem;
-  color: #5a5a7a;
+  color: #6b6b6b;
 }

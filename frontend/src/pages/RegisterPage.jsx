@@ -36,7 +36,7 @@ function RegisterPage() {
     setSubmitting(true);
     try {
       await register(username.trim(), email.trim(), password);
-      navigate("/");
+      navigate("/browse");
     } catch (err) {
       setError(err.message);
     } finally {

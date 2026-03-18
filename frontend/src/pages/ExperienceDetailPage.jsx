@@ -72,15 +72,15 @@ function ExperienceDetailPage() {
 
   const formattedDate = experience.experienceDate
     ? new Date(experience.experienceDate).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      })
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
     : "Not specified";
 
   const difficultyClass =
     { Easy: "success", Medium: "warning", Hard: "danger" }[
-      experience.difficultyLevel
+    experience.difficultyLevel
     ] || "secondary";
 
   const outcomeClass =
@@ -93,7 +93,7 @@ function ExperienceDetailPage() {
 
   return (
     <Container className="ic-detail-page">
-      <Link to="/" className="ic-back-link">
+      <Link to="/browse" className="ic-back-link">
         &larr; Back to all experiences
       </Link>
 

@@ -3,16 +3,16 @@
 }
 
 .ic-form-submit-btn {
-  background-color: #4361ee;
-  border-color: #4361ee;
+  background-color: #222;
+  border-color: #222;
   border-radius: 8px;
   font-weight: 600;
   padding: 0.55rem 2rem;
 }
 
 .ic-form-submit-btn:hover {
-  background-color: #3a56d4;
-  border-color: #3a56d4;
+  background-color: #333;
+  border-color: #333;
 }
 
 .ic-form-submit-btn:disabled {

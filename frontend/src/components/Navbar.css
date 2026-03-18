@@ -1,7 +1,18 @@
 .ic-navbar {
-  background-color: #1a1a2e;
+  background-color: #1d1d1d;
   padding: 0.75rem 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.ic-navbar.ic-navbar-transparent {
+  background-color: rgba(243, 237, 226, 0.82);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  box-shadow: none;
+  border-bottom: 1px solid rgba(104, 95, 84, 0.16);
+  backdrop-filter: blur(14px);
 }
 
 .ic-navbar-brand {
@@ -12,7 +23,7 @@
 }
 
 .ic-navbar .nav-link {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.75);
   font-weight: 500;
   font-size: 0.92rem;
   padding: 0.4rem 0.8rem;
@@ -23,4 +34,32 @@
 .ic-navbar .nav-link:hover {
   color: #fff;
   background-color: rgba(255, 255, 255, 0.08);
+}
+
+.ic-navbar-transparent .ic-navbar-brand {
+  color: #181511;
+}
+
+.ic-navbar-transparent .nav-link {
+  color: rgba(24, 21, 17, 0.72);
+}
+
+.ic-navbar-transparent .nav-link:hover {
+  color: #181511;
+  background-color: rgba(104, 95, 84, 0.08);
+}
+
+.ic-navbar-transparent .text-light {
+  color: #181511 !important;
+}
+
+.ic-navbar-transparent .btn-outline-light {
+  --bs-btn-color: #181511;
+  --bs-btn-border-color: rgba(104, 95, 84, 0.35);
+  --bs-btn-hover-bg: #181511;
+  --bs-btn-hover-border-color: #181511;
+  --bs-btn-hover-color: #f7f2eb;
+  --bs-btn-active-bg: #181511;
+  --bs-btn-active-border-color: #181511;
+  --bs-btn-active-color: #f7f2eb;
 }
