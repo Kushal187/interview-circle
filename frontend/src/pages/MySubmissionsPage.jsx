@@ -13,19 +13,18 @@ function MySubmissionsPage() {
   const [error, setError] = useState("");
 
   useEffect(() => {
+    const loadExperiences = async () => {
+      try {
+        const data = await fetchMyExperiences();
+        setExperiences(data.experiences);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
     loadExperiences();
   }, []);
-
-  const loadExperiences = async () => {
-    try {
-      const data = await fetchMyExperiences();
-      setExperiences(data.experiences);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this experience?")) {

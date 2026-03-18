@@ -20,9 +20,9 @@ function OutdatedFlag({ experienceId }) {
 
   useEffect(() => {
     let cancelled = false;
-
-    fetchSignals(experienceId)
-      .then((data) => {
+    const loadSignals = async () => {
+      try {
+        const data = await fetchSignals(experienceId);
         if (cancelled) return;
         setOutdatedCount(data.outdatedCount);
         if (data.userSignal) {
@@ -30,12 +30,13 @@ function OutdatedFlag({ experienceId }) {
           setCurrentHelpful(data.userSignal.helpful);
           setHasSignal(true);
         }
-      })
-      .catch(() => {})
-      .finally(() => {
+      } catch {
+        // ignore fetch errors
+      } finally {
         if (!cancelled) setLoading(false);
-      });
-
+      }
+    };
+    loadSignals();
     return () => {
       cancelled = true;
     };

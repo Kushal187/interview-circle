@@ -58,13 +58,14 @@ async function getAllExperiences(req, res) {
     const skip = (page - 1) * limit;
     const sort = req.query.sort || "newest";
 
+    const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const filter = {};
 
     if (req.query.company) {
-      filter.company = { $regex: req.query.company, $options: "i" };
+      filter.company = { $regex: escapeRegex(req.query.company), $options: "i" };
     }
     if (req.query.role) {
-      filter.role = { $regex: req.query.role, $options: "i" };
+      filter.role = { $regex: escapeRegex(req.query.role), $options: "i" };
     }
     if (req.query.round) {
       filter.interviewRound = req.query.round;
@@ -283,9 +284,12 @@ async function deleteExperience(req, res) {
         .json({ error: "You can only delete your own experiences" });
     }
 
+    const expObjId = new ObjectId(req.params.id);
+
+    await db.collection("interviewExperiences").deleteOne({ _id: expObjId });
     await db
-      .collection("interviewExperiences")
-      .deleteOne({ _id: new ObjectId(req.params.id) });
+      .collection("experienceSignals")
+      .deleteMany({ experienceId: expObjId });
 
     res.json({ message: "Experience deleted" });
   } catch (err) {

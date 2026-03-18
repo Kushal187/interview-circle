@@ -3,8 +3,8 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 import PropTypes from "prop-types";
 import "./ExperienceForm.css";
 
-const ROUNDS = ["Phone Screen", "Onsite", "Online Assessment", "Take Home", "Other"];
-const FORMATS = ["Technical", "Behavioral", "System Design", "Mixed", "Other"];
+const ROUNDS = ["Phone Screen", "Online Assessment", "Onsite", "Take Home", "Final Round", "Other"];
+const FORMATS = ["Technical", "Behavioral", "System Design", "Live Coding", "Mixed", "Other"];
 const DIFFICULTIES = ["Easy", "Medium", "Hard"];
 const OUTCOMES = ["Accepted", "Rejected", "Ghosted", "Pending"];
 
@@ -229,7 +229,19 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
 }
 
 ExperienceForm.propTypes = {
-  initialData: PropTypes.object,
+  initialData: PropTypes.shape({
+    company: PropTypes.string,
+    role: PropTypes.string,
+    interviewRound: PropTypes.string,
+    interviewFormat: PropTypes.string,
+    questionThemes: PropTypes.arrayOf(PropTypes.string),
+    difficultyLevel: PropTypes.string,
+    formatNotes: PropTypes.string,
+    caughtOffGuardNotes: PropTypes.string,
+    outcomeTag: PropTypes.string,
+    experienceDate: PropTypes.string,
+    isAnonymous: PropTypes.bool,
+  }),
   onSubmit: PropTypes.func.isRequired,
   submitLabel: PropTypes.string,
 };

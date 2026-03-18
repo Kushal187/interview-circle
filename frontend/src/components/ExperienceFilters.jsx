@@ -3,7 +3,7 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 import PropTypes from "prop-types";
 import "./ExperienceFilters.css";
 
-const ROUNDS = ["Phone Screen", "Onsite", "Online Assessment", "Take Home", "Other"];
+const ROUNDS = ["Phone Screen", "Online Assessment", "Onsite", "Take Home", "Final Round", "Other"];
 
 function ExperienceFilters({ onFilter }) {
   const [company, setCompany] = useState("");

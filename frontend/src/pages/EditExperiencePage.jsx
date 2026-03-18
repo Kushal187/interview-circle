@@ -16,10 +16,17 @@ function EditExperiencePage() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetchExperienceById(id)
-      .then((data) => setExperience(data))
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
+    const loadExperience = async () => {
+      try {
+        const data = await fetchExperienceById(id);
+        setExperience(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadExperience();
   }, [id]);
 
   const handleSubmit = async (data) => {

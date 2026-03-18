@@ -20,9 +20,9 @@ function HelpfulVote({ experienceId }) {
 
   useEffect(() => {
     let cancelled = false;
-
-    fetchSignals(experienceId)
-      .then((data) => {
+    const loadSignals = async () => {
+      try {
+        const data = await fetchSignals(experienceId);
         if (cancelled) return;
         setHelpfulCount(data.helpfulCount);
         if (data.userSignal) {
@@ -30,12 +30,13 @@ function HelpfulVote({ experienceId }) {
           setCurrentOutdated(data.userSignal.outdated);
           setHasSignal(true);
         }
-      })
-      .catch(() => {})
-      .finally(() => {
+      } catch {
+        // ignore fetch errors
+      } finally {
         if (!cancelled) setLoading(false);
-      });
-
+      }
+    };
+    loadSignals();
     return () => {
       cancelled = true;
     };

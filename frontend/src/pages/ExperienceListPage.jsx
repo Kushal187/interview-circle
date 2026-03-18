@@ -12,6 +12,7 @@ function ExperienceListPage() {
   const [error, setError] = useState("");
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [total, setTotal] = useState(0);
   const [filters, setFilters] = useState({});
   const [sort, setSort] = useState("newest");
 
@@ -22,6 +23,7 @@ function ExperienceListPage() {
       const data = await fetchExperiences({ ...filters, sort, page });
       setExperiences(data.experiences);
       setTotalPages(data.totalPages);
+      setTotal(data.total);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -49,7 +51,7 @@ function ExperienceListPage() {
       <ExperienceFilters onFilter={handleFilter} />
       <div className="d-flex justify-content-between align-items-center mb-3">
         <span className="text-muted ic-result-count">
-          {loading ? "" : `${experiences.length} results`}
+          {loading ? "" : `${total} results`}
         </span>
         <SortControls currentSort={sort} onSortChange={handleSortChange} />
       </div>

@@ -74,7 +74,19 @@ function ExperienceCard({ experience }) {
 }
 
 ExperienceCard.propTypes = {
-  experience: PropTypes.object.isRequired,
+  experience: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    company: PropTypes.string.isRequired,
+    role: PropTypes.string.isRequired,
+    interviewRound: PropTypes.string.isRequired,
+    interviewFormat: PropTypes.string,
+    difficultyLevel: PropTypes.string.isRequired,
+    outcomeTag: PropTypes.string,
+    questionThemes: PropTypes.arrayOf(PropTypes.string),
+    experienceDate: PropTypes.string,
+    createdAt: PropTypes.string,
+    isAnonymous: PropTypes.bool,
+  }).isRequired,
 };
 
 export default ExperienceCard;

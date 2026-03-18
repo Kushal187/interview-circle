@@ -49,7 +49,7 @@ function Navbar({ transparent = false }) {
           <Nav>
             {user ? (
               <>
-                <Nav.Item className="d-flex align-items-center me-3 text-light">
+                <Nav.Item className="d-flex align-items-center me-3 ic-navbar-username">
                   {user.username}
                 </Nav.Item>
                 <Button

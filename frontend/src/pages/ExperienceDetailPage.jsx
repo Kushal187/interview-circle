@@ -20,19 +20,18 @@ function ExperienceDetailPage() {
 
   useEffect(() => {
     let cancelled = false;
-    setLoading(true);
-
-    fetchExperienceById(id)
-      .then((data) => {
+    const loadExperience = async () => {
+      setLoading(true);
+      try {
+        const data = await fetchExperienceById(id);
         if (!cancelled) setExperience(data);
-      })
-      .catch((err) => {
+      } catch (err) {
         if (!cancelled) setError(err.message);
-      })
-      .finally(() => {
+      } finally {
         if (!cancelled) setLoading(false);
-      });
-
+      }
+    };
+    loadExperience();
     return () => {
       cancelled = true;
     };

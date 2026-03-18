@@ -55,7 +55,7 @@ a:hover {
 }
 
 .badge.bg-primary {
-  background-color: #1e1c19 !important;
+  --bs-badge-bg: #1e1c19;
 }
 
 .form-control:focus,

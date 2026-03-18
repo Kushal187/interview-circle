@@ -14,10 +14,17 @@ function UserProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    checkSession()
-      .then((data) => setUser(data.user))
-      .catch(() => setUser(null))
-      .finally(() => setLoading(false));
+    const loadSession = async () => {
+      try {
+        const data = await checkSession();
+        setUser(data.user);
+      } catch {
+        setUser(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadSession();
   }, []);
 
   const login = useCallback(async (username, password) => {

@@ -50,8 +50,12 @@
   background-color: rgba(104, 95, 84, 0.08);
 }
 
-.ic-navbar-transparent .text-light {
-  color: #181511 !important;
+.ic-navbar .ic-navbar-username {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ic-navbar-transparent .ic-navbar-username {
+  color: #181511;
 }
 
 .ic-navbar-transparent .btn-outline-light {

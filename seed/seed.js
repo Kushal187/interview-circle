@@ -75,9 +75,9 @@ const ROUNDS = [
   "Phone Screen",
   "Online Assessment",
   "Onsite",
-  "Technical",
-  "Behavioral",
+  "Take Home",
   "Final Round",
+  "Other",
 ];
 
 const FORMATS = [
@@ -85,8 +85,8 @@ const FORMATS = [
   "Behavioral",
   "System Design",
   "Live Coding",
-  "Take Home",
-  "Case Study",
+  "Mixed",
+  "Other",
 ];
 
 const DIFFICULTIES = ["Easy", "Medium", "Hard"];
