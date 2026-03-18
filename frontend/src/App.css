@@ -1,0 +1,11 @@
+.ic-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.ic-main {
+  flex: 1;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
