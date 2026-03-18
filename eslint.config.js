@@ -26,7 +26,15 @@ export default defineConfig([
     },
   },
   {
-    files: ["*.js", "db/**/*.js", "routes/**/*.js", "scripts/**/*.js"],
+    files: [
+      "*.js",
+      "db/**/*.js",
+      "routes/**/*.js",
+      "controllers/**/*.js",
+      "middleware/**/*.js",
+      "config/**/*.js",
+      "seed/**/*.js",
+    ],
     plugins: { js },
     extends: ["js/recommended"],
     languageOptions: { globals: globals.node },
