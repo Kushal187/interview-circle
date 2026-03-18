@@ -1,0 +1,45 @@
+.ic-login-page {
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+}
+
+.ic-auth-card {
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid #e4e6eb;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.ic-auth-title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+  color: #1a1a2e;
+}
+
+.ic-auth-btn {
+  background-color: #4361ee;
+  border-color: #4361ee;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 0.55rem;
+}
+
+.ic-auth-btn:hover {
+  background-color: #3a56d4;
+  border-color: #3a56d4;
+}
+
+.ic-auth-btn:disabled {
+  opacity: 0.7;
+}
+
+.ic-auth-footer {
+  text-align: center;
+  margin-top: 1.25rem;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  color: #5a5a7a;
+}
