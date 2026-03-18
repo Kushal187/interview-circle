@@ -1,0 +1,75 @@
+.ic-exp-card {
+  border: 1px solid #e4e6eb;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  transition: box-shadow 0.15s;
+}
+
+.ic-exp-card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.ic-exp-company {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #1a1a2e;
+  text-decoration: none;
+}
+
+.ic-exp-company:hover {
+  color: #4361ee;
+}
+
+.ic-exp-role {
+  font-size: 0.92rem;
+  color: #5a5a7a;
+}
+
+.ic-exp-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+}
+
+.ic-exp-round,
+.ic-exp-format {
+  font-size: 0.82rem;
+  color: #5a5a7a;
+  background-color: #f0f1f5;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+}
+
+.ic-exp-outcome {
+  font-size: 0.78rem;
+}
+
+.ic-exp-themes {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.ic-exp-theme-tag {
+  font-size: 0.78rem;
+  background-color: #e8ecff;
+  color: #4361ee;
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.ic-exp-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.ic-exp-anon {
+  font-style: italic;
+}
