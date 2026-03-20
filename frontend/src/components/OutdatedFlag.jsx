@@ -3,44 +3,32 @@ import { Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { UserContext } from "../context/UserContext";
 import {
-  fetchSignals,
   createSignal,
   updateSignal,
   deleteSignal,
 } from "../services/signalService";
 import "./OutdatedFlag.css";
 
-function OutdatedFlag({ experienceId }) {
+function OutdatedFlag({ experienceId, signalData, onSignalChange }) {
   const { user } = useContext(UserContext);
   const [outdatedCount, setOutdatedCount] = useState(0);
   const [isOutdated, setIsOutdated] = useState(false);
   const [hasSignal, setHasSignal] = useState(false);
   const [currentHelpful, setCurrentHelpful] = useState(false);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let cancelled = false;
-    const loadSignals = async () => {
-      try {
-        const data = await fetchSignals(experienceId);
-        if (cancelled) return;
-        setOutdatedCount(data.outdatedCount);
-        if (data.userSignal) {
-          setIsOutdated(data.userSignal.outdated);
-          setCurrentHelpful(data.userSignal.helpful);
-          setHasSignal(true);
-        }
-      } catch {
-        // ignore fetch errors
-      } finally {
-        if (!cancelled) setLoading(false);
-      }
-    };
-    loadSignals();
-    return () => {
-      cancelled = true;
-    };
-  }, [experienceId]);
+    if (!signalData) return;
+    setOutdatedCount(signalData.outdatedCount);
+    if (signalData.userSignal) {
+      setIsOutdated(signalData.userSignal.outdated);
+      setCurrentHelpful(signalData.userSignal.helpful);
+      setHasSignal(true);
+    } else {
+      setIsOutdated(false);
+      setCurrentHelpful(false);
+      setHasSignal(false);
+    }
+  }, [signalData]);
 
   const handleToggle = async () => {
     if (!user) return;
@@ -48,31 +36,22 @@ function OutdatedFlag({ experienceId }) {
     try {
       if (!hasSignal) {
         await createSignal(experienceId, false, true);
-        setIsOutdated(true);
-        setHasSignal(true);
-        setOutdatedCount((c) => c + 1);
       } else if (isOutdated) {
         if (!currentHelpful) {
           await deleteSignal(experienceId);
-          setIsOutdated(false);
-          setHasSignal(false);
-          setCurrentHelpful(false);
         } else {
           await updateSignal(experienceId, { outdated: false });
-          setIsOutdated(false);
         }
-        setOutdatedCount((c) => c - 1);
       } else {
         await updateSignal(experienceId, { outdated: true });
-        setIsOutdated(true);
-        setOutdatedCount((c) => c + 1);
       }
+      onSignalChange();
     } catch {
       // silently handle toggle failure
     }
   };
 
-  if (loading) return null;
+  if (!signalData) return null;
 
   return (
     <div className="ic-outdated-flag">
@@ -93,6 +72,15 @@ function OutdatedFlag({ experienceId }) {
 
 OutdatedFlag.propTypes = {
   experienceId: PropTypes.string.isRequired,
+  signalData: PropTypes.shape({
+    helpfulCount: PropTypes.number,
+    outdatedCount: PropTypes.number,
+    userSignal: PropTypes.shape({
+      helpful: PropTypes.bool,
+      outdated: PropTypes.bool,
+    }),
+  }),
+  onSignalChange: PropTypes.func.isRequired,
 };
 
 export default OutdatedFlag;

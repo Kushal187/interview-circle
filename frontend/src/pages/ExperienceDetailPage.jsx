@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useCallback } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { Container, Badge, Spinner, Button } from "react-bootstrap";
 import { UserContext } from "../context/UserContext";
@@ -8,6 +8,7 @@ import {
   fetchExperienceById,
   deleteExperience,
 } from "../services/experienceService";
+import { fetchSignals } from "../services/signalService";
 import "./ExperienceDetailPage.css";
 
 function ExperienceDetailPage() {
@@ -17,6 +18,7 @@ function ExperienceDetailPage() {
   const [experience, setExperience] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [signalData, setSignalData] = useState(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -36,6 +38,19 @@ function ExperienceDetailPage() {
       cancelled = true;
     };
   }, [id]);
+
+  const loadSignals = useCallback(async () => {
+    try {
+      const data = await fetchSignals(id);
+      setSignalData(data);
+    } catch {
+      // ignore signal fetch errors
+    }
+  }, [id]);
+
+  useEffect(() => {
+    loadSignals();
+  }, [loadSignals]);
 
   const handleDelete = async () => {
     if (!window.confirm("Are you sure you want to delete this experience?")) {
@@ -170,8 +185,16 @@ function ExperienceDetailPage() {
       )}
 
       <div className="ic-detail-signals">
-        <HelpfulVote experienceId={id} />
-        <OutdatedFlag experienceId={id} />
+        <HelpfulVote
+          experienceId={id}
+          signalData={signalData}
+          onSignalChange={loadSignals}
+        />
+        <OutdatedFlag
+          experienceId={id}
+          signalData={signalData}
+          onSignalChange={loadSignals}
+        />
       </div>
     </Container>
   );

@@ -128,7 +128,6 @@ All seeded accounts use the password `password123`:
 
 8. Open [http://localhost:5174](http://localhost:5174) in your browser.
 
-
 ### Production Build
 
 To serve the frontend from Express directly:
