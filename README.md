@@ -21,7 +21,7 @@ A student-focused platform for sharing structured interview experiences — filt
 
 [View Demo Video]()
 
-[View Design Document]()
+[View Design Document](https://drive.google.com/file/d/1AevZGUlXZkUT2PzhNpeC4g2NXxyohoiA/view?usp=sharing)
 
 ## Project Objective
 
@@ -58,6 +58,16 @@ InterviewCircle solves this by allowing students to submit interview experiences
 - **Frontend:** React 19 with Hooks, React Router, React Bootstrap
 - **Authentication:** Passport.js (local strategy) with express-session
 - **Tooling:** Vite, ESLint, Prettier, Nodemon
+
+## Test Accounts
+
+All seeded accounts use the password `password123`:
+
+| Username    | Password      |
+| ----------- | ------------- |
+| `sanjeev`   | `password123` |
+| `harsh`     | `password123` |
+| `alex_chen` | `password123` |
 
 ## Getting Started
 
@@ -117,6 +127,7 @@ InterviewCircle solves this by allowing students to submit interview experiences
    ```
 
 8. Open [http://localhost:5174](http://localhost:5174) in your browser.
+
 
 ### Production Build
 
