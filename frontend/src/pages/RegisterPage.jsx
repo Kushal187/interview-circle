@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import { Form, Button, Container, Card } from "react-bootstrap";
 import { UserContext } from "../context/UserContext";
 import "./RegisterPage.css";
@@ -7,6 +7,12 @@ import "./RegisterPage.css";
 function RegisterPage() {
   const { register } = useContext(UserContext);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const getReturnTo = () => {
+    const params = new URLSearchParams(location.search);
+    return params.get("returnTo") || location.state?.from || "/browse";
+  };
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -36,7 +42,7 @@ function RegisterPage() {
     setSubmitting(true);
     try {
       await register(username.trim(), email.trim(), password);
-      navigate("/browse");
+      navigate(getReturnTo(), { replace: true });
     } catch (err) {
       setError(err.message);
     } finally {
@@ -99,7 +105,10 @@ function RegisterPage() {
             </Button>
           </Form>
           <p className="ic-auth-footer">
-            Already have an account? <Link to="/login">Log In</Link>
+            Already have an account?{" "}
+            <Link to={`/login${location.search}`} state={location.state}>
+              Log In
+            </Link>
           </p>
         </Card.Body>
       </Card>
