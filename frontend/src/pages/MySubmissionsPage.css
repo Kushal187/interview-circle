@@ -48,3 +48,13 @@
   background-color: #f0e6cc;
   color: #7a6020;
 }
+
+.ic-preview-cell {
+  max-width: 220px;
+  font-size: 0.85rem;
+  color: #4a4540;
+}
+
+.ic-actions-cell {
+  white-space: nowrap;
+}

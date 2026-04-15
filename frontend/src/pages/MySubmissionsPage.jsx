@@ -7,6 +7,11 @@ import {
 } from "../services/experienceService";
 import "./MySubmissionsPage.css";
 
+function truncate(text, max = 80) {
+  if (!text) return null;
+  return text.length > max ? text.slice(0, max) + "…" : text;
+}
+
 function MySubmissionsPage() {
   const [experiences, setExperiences] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -38,6 +43,14 @@ function MySubmissionsPage() {
     }
   };
 
+  const getPreview = (exp) => {
+    if (exp.questionThemes?.length) {
+      return truncate(exp.questionThemes.join(", "));
+    }
+    if (exp.formatNotes) return truncate(exp.formatNotes);
+    return null;
+  };
+
   if (loading) {
     return (
       <Container className="ic-my-subs text-center">
@@ -66,7 +79,7 @@ function MySubmissionsPage() {
               <th>Company</th>
               <th>Role</th>
               <th>Round</th>
-              <th>Difficulty</th>
+              <th>Preview</th>
               <th>Outcome</th>
               <th>Actions</th>
             </tr>
@@ -77,7 +90,13 @@ function MySubmissionsPage() {
                 <td>{exp.company}</td>
                 <td>{exp.role}</td>
                 <td>{exp.interviewRound}</td>
-                <td>{exp.difficultyLevel}</td>
+                <td className="ic-preview-cell">
+                  {getPreview(exp) || (
+                    <span className="text-muted fst-italic">
+                      No details added
+                    </span>
+                  )}
+                </td>
                 <td>
                   <span
                     className={`ic-outcome ic-outcome-${exp.outcomeTag.toLowerCase()}`}
@@ -85,7 +104,13 @@ function MySubmissionsPage() {
                     {exp.outcomeTag}
                   </span>
                 </td>
-                <td>
+                <td className="ic-actions-cell">
+                  <Link
+                    to={`/experience/${exp._id}`}
+                    className="btn btn-sm btn-outline-secondary me-2"
+                  >
+                    View
+                  </Link>
                   <Link
                     to={`/edit/${exp._id}`}
                     className="btn btn-sm btn-outline-primary me-2"
