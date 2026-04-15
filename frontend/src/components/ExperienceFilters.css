@@ -40,3 +40,37 @@
   background-color: #2e2a26;
   border-color: #2e2a26;
 }
+
+.ic-autocomplete {
+  position: relative;
+}
+
+.ic-autocomplete-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: #fff;
+  border: 1px solid #c8c3bb;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  max-height: 200px;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.ic-autocomplete-item {
+  padding: 0.45rem 0.75rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #1e1c19;
+}
+
+.ic-autocomplete-item:hover,
+.ic-autocomplete-item-active {
+  background-color: #f0ece7;
+}

@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext, useCallback } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { Container, Badge, Spinner, Button } from "react-bootstrap";
+import { Container, Badge, Spinner, Button, Modal } from "react-bootstrap";
 import { UserContext } from "../context/UserContext";
 import HelpfulVote from "../components/HelpfulVote";
 import OutdatedFlag from "../components/OutdatedFlag";
@@ -19,6 +19,7 @@ function ExperienceDetailPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [signalData, setSignalData] = useState(null);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -53,9 +54,7 @@ function ExperienceDetailPage() {
   }, [loadSignals]);
 
   const handleDelete = async () => {
-    if (!window.confirm("Are you sure you want to delete this experience?")) {
-      return;
-    }
+    setShowDeleteModal(false);
     try {
       await deleteExperience(id);
       navigate("/my-submissions");
@@ -129,7 +128,11 @@ function ExperienceDetailPage() {
             >
               Edit
             </Button>
-            <Button size="sm" variant="outline-danger" onClick={handleDelete}>
+            <Button
+              size="sm"
+              variant="outline-danger"
+              onClick={() => setShowDeleteModal(true)}
+            >
               Delete
             </Button>
           </div>
@@ -199,6 +202,31 @@ function ExperienceDetailPage() {
           onSignalChange={loadSignals}
         />
       </div>
+
+      <Modal
+        show={showDeleteModal}
+        onHide={() => setShowDeleteModal(false)}
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm Delete</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Are you sure you want to delete this experience? This action cannot be
+          undone.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            variant="secondary"
+            onClick={() => setShowDeleteModal(false)}
+          >
+            Cancel
+          </Button>
+          <Button variant="danger" onClick={handleDelete}>
+            Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 }

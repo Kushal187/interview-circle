@@ -75,17 +75,11 @@ function OutdatedFlag({ experienceId, signalData, onSignalChange }) {
           size="sm"
           variant="outline-secondary"
           className="ic-outdated-btn ic-outdated-btn-locked"
-          title="Log in to flag"
         >
-          &#128274; Outdated
+          &#128274; Outdated &mdash; Log in to flag
         </Button>
       )}
       <span className="ic-outdated-count">{outdatedCount}</span>
-      {!user && (
-        <Link to={loginTo} className="ic-outdated-login-link">
-          Log in to flag
-        </Link>
-      )}
     </div>
   );
 }

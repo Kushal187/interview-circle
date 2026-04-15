@@ -75,17 +75,11 @@ function HelpfulVote({ experienceId, signalData, onSignalChange }) {
           size="sm"
           variant="outline-secondary"
           className="ic-helpful-btn ic-helpful-btn-locked"
-          title="Log in to vote"
         >
-          &#128274; Helpful
+          &#128274; Helpful &mdash; Log in to vote
         </Button>
       )}
       <span className="ic-helpful-count">{helpfulCount}</span>
-      {!user && (
-        <Link to={loginTo} className="ic-helpful-login-link">
-          Log in to vote
-        </Link>
-      )}
     </div>
   );
 }

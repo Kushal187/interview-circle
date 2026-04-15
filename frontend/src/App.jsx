@@ -17,13 +17,18 @@ function App() {
 
   return (
     <div className="ic-app">
+      <a href="#main-content" className="ic-skip-link">
+        Skip to main content
+      </a>
       <Navbar transparent={isLanding} />
       {isLanding ? (
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-        </Routes>
+        <main id="main-content">
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+          </Routes>
+        </main>
       ) : (
-        <main className="ic-main">
+        <main id="main-content" className="ic-main">
           <Routes>
             <Route path="/browse" element={<ExperienceListPage />} />
             <Route path="/experience/:id" element={<ExperienceDetailPage />} />
