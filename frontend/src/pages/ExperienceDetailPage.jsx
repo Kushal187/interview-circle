@@ -179,7 +179,7 @@ function ExperienceDetailPage() {
 
       {experience.caughtOffGuardNotes && (
         <div className="ic-detail-section">
-          <h3>Caught Off Guard</h3>
+          <h3>What Surprised Me</h3>
           <p>{experience.caughtOffGuardNotes}</p>
         </div>
       )}

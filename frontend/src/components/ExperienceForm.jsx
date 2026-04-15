@@ -200,13 +200,13 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
         />
       </Form.Group>
       <Form.Group className="mb-3">
-        <Form.Label>Caught Off Guard</Form.Label>
+        <Form.Label>What Surprised Me</Form.Label>
         <Form.Control
           as="textarea"
           rows={2}
           value={caughtOffGuardNotes}
           onChange={(e) => setCaughtOffGuardNotes(e.target.value)}
-          placeholder="Anything unexpected?"
+          placeholder="Anything unexpected during the interview?"
         />
       </Form.Group>
       <Row>
