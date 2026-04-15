@@ -30,11 +30,12 @@ function Navbar({ transparent = false }) {
             <Nav.Link as={Link} to="/browse">
               Browse
             </Nav.Link>
-            {user && (
-              <Nav.Link as={Link} to="/submit">
-                Submit
-              </Nav.Link>
-            )}
+            <Nav.Link
+              as={Link}
+              to={user ? "/submit" : "/login?returnTo=/submit"}
+            >
+              Submit
+            </Nav.Link>
             {user && (
               <Nav.Link as={Link} to="/my-submissions">
                 My Submissions

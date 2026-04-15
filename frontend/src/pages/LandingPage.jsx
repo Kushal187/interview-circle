@@ -23,16 +23,14 @@ function LandingPage() {
               <Link to="/browse" className="lp-btn-primary">
                 Browse experiences
               </Link>
-              {!user && (
-                <Link to="/register" className="lp-text-link">
-                  Create an account to contribute
-                </Link>
-              )}
-              {user && (
-                <Link to="/submit" className="lp-text-link">
-                  Share your recent interview loop
-                </Link>
-              )}
+              <Link
+                to={user ? "/submit" : "/login?returnTo=/submit"}
+                className="lp-btn-secondary"
+              >
+                {user
+                  ? "Share your recent interview"
+                  : "Share Your Experience"}
+              </Link>
             </div>
           </div>
         </div>

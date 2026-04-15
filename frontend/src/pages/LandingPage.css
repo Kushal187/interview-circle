@@ -83,6 +83,32 @@
   transform: translateY(-1px);
 }
 
+.lp-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.7rem 1.3rem;
+  border: 1.5px solid var(--lp-ink);
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  background: transparent;
+  color: var(--lp-ink);
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.lp-btn-secondary:hover {
+  background: var(--lp-ink);
+  color: #f7f2eb;
+  transform: translateY(-1px);
+}
+
 .lp-text-link {
   color: var(--lp-accent);
   font-size: 0.92rem;
@@ -283,7 +309,8 @@
     align-items: stretch;
   }
 
-  .lp-btn-primary {
+  .lp-btn-primary,
+  .lp-btn-secondary {
     width: 100%;
   }
 
