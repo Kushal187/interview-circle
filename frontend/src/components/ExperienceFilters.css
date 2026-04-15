@@ -2,21 +2,38 @@
   background-color: #fff;
   border: 1px solid #ddd8d0;
   border-radius: 10px;
-  padding: 1rem 1.25rem;
+  padding: 1.25rem 1.5rem;
   margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .ic-filter-label {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: #756b60;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #4a4540;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.ic-filters .form-control,
+.ic-filters .form-select {
+  border-color: #c8c3bb;
+}
+
+.ic-filters .form-control:focus,
+.ic-filters .form-select:focus {
+  border-color: #1e1c19;
+  box-shadow: 0 0 0 0.2rem rgba(30, 28, 25, 0.15);
 }
 
 .ic-filter-btn {
   background-color: #1e1c19;
   border-color: #1e1c19;
-  font-weight: 600;
-  padding: 0.4rem 1.4rem;
+  color: #fff;
+  font-weight: 700;
+  padding: 0.45rem 1.5rem;
+  border-radius: 6px;
 }
 
 .ic-filter-btn:hover {

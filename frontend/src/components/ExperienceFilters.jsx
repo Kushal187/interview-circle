@@ -43,12 +43,11 @@ function ExperienceFilters({ onFilter }) {
 
   return (
     <Form onSubmit={handleApply} className="ic-filters">
-      <Row className="align-items-end">
+      <Row className="align-items-end gx-3">
         <Col md={3}>
           <Form.Group className="mb-2">
             <Form.Label className="ic-filter-label">Company</Form.Label>
             <Form.Control
-              size="sm"
               list="ic-company-options"
               value={company}
               onChange={(e) => setCompany(e.target.value)}
@@ -65,7 +64,6 @@ function ExperienceFilters({ onFilter }) {
           <Form.Group className="mb-2">
             <Form.Label className="ic-filter-label">Role</Form.Label>
             <Form.Control
-              size="sm"
               list="ic-role-options"
               value={role}
               onChange={(e) => setRole(e.target.value)}
@@ -82,7 +80,6 @@ function ExperienceFilters({ onFilter }) {
           <Form.Group className="mb-2">
             <Form.Label className="ic-filter-label">Round</Form.Label>
             <Form.Select
-              size="sm"
               value={round}
               onChange={(e) => setRound(e.target.value)}
             >
@@ -95,14 +92,13 @@ function ExperienceFilters({ onFilter }) {
             </Form.Select>
           </Form.Group>
         </Col>
-        <Col md={3} className="mb-2 d-flex gap-2">
+        <Col md={3} className="mb-2 d-flex gap-2 align-items-end">
           <Button type="submit" className="ic-filter-btn">
-            Apply
+            Apply Filters
           </Button>
           <Button
             type="button"
             variant="outline-secondary"
-            size="sm"
             onClick={handleClear}
           >
             Clear
