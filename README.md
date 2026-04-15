@@ -51,6 +51,61 @@ InterviewCircle solves this by allowing students to submit interview experiences
 
 ![My Submissions](screenshots/my_submissions.png)
 
+## Design
+
+### Color Palette
+
+| Color | Hex | Usage |
+| ----- | --- | ----- |
+| Ink | `#1e1c19` | Primary text, headings, buttons |
+| Paper | `#faf8f4` | Page background |
+| Warm Paper | `#f3ede2` | Landing page background |
+| Muted | `#756b60` | Secondary text, labels, captions |
+| Accent | `#9b5740` | Links, hover states, theme tags |
+| Border | `#ddd8d0` | Card borders, dividers, input borders |
+
+The palette is intentionally warm and muted, drawing from paper and ink tones to create a calm, editorial feel that keeps the focus on content rather than chrome.
+
+### Font Pairing
+
+| Font | Type | Usage |
+| ---- | ---- | ----- |
+| [Newsreader](https://fonts.google.com/specimen/Newsreader) | Serif | Headings, company names, section titles |
+| [Instrument Sans](https://fonts.google.com/specimen/Instrument+Sans) | Sans-serif | Body text, labels, buttons, form controls |
+
+**Why these fonts:** Newsreader is an editorial serif that gives headings a professional, trustworthy feel appropriate for interview content. Instrument Sans is a clean geometric sans-serif that pairs well for UI text — it's highly readable at small sizes and keeps the interface feeling modern without competing with the headings.
+
+### Design Principles 
+
+- **Contrast:** Dark ink text on warm white backgrounds creates strong readability. Colored badges (green for Accepted, red for Hard/Rejected, yellow for Medium/Pending) draw attention to key metadata. The accent color is reserved for interactive elements like links and theme tags.
+- **Repetition:** Every experience card uses the same layout — company name, role, badges, themes, and footer. The same badge styles, button variants, and section heading patterns repeat across the browse page, detail page, and submission form. Filter controls and action buttons use consistent sizing and weight.
+- **Alignment:** The Bootstrap grid system provides consistent column alignment across all pages. Form fields align in rows, card content is left-aligned, and the detail page follows a clear top-to-bottom reading flow with left-aligned sections.
+- **Proximity:** Related information is grouped together — badges for round, format, difficulty, and outcome sit in a single row. Question themes cluster as tags. Filter inputs are grouped in one horizontal bar. Action buttons (Edit, Delete, View) are placed together in the same table cell.
+
+## Usability Study
+
+We conducted a usability study with 5 participants. The study identified 8 prioritized issues, all of which have been addressed in the final project.
+
+Full study report: [assignment4-usability-report.md](assignment4-usability-report.md)
+
+## Accessibility (WCAG 2.0)
+
+The application follows WCAG 2.0 guidelines to ensure it is usable by all users, including those who rely on keyboards and assistive technology.
+
+**Keyboard navigation:** The entire application is navigable by keyboard. All interactive elements (links, buttons, form controls, dropdowns) are reachable via Tab and operable with Enter/Space. The custom autocomplete filter supports ArrowUp/Down to navigate suggestions, Enter to select, and Escape to close.
+
+**Skip navigation:** A "Skip to main content" link is the first focusable element on every page. It is visually hidden until focused, allowing keyboard users to bypass the navigation bar.
+
+**Landmarks and structure:** Every page is wrapped in a `<main>` landmark. Headings follow a logical hierarchy (h1 for page titles, h2 for sections, h3 for subsections). The `<html>` element includes `lang="en"`.
+
+**Focus management:** Focus-visible outlines are present on all interactive elements including landing page CTAs, form inputs, and buttons. The delete confirmation uses a Bootstrap Modal with focus trapping and Escape-to-close. No `outline: none` is used anywhere in the CSS.
+
+**Color contrast:** All text meets WCAG AA contrast requirements (minimum 4.5:1 ratio for normal text). Muted text colors were tested and adjusted to meet this threshold against their backgrounds.
+
+**ARIA and semantics:** The autocomplete filter uses the ARIA combobox pattern (`role="combobox"`, `aria-expanded`, `aria-controls`, `aria-activedescendant`, `role="listbox"`, `role="option"`). Form validation errors use `role="alert"` for screen reader announcements. Form labels are associated with controls via `controlId`.
+
+**Signals for logged-out users:** Helpful and Outdated controls display clear inline text ("Log in to vote" / "Log in to flag") as clickable links rather than disabled buttons with hover-only tooltips, ensuring the guidance is visible without mouse interaction.
+
 ## Tech Stack
 
 - **Backend:** Node.js, Express 5
