@@ -58,10 +58,18 @@ async function deleteExperience(id) {
   return data;
 }
 
+async function fetchFacets() {
+  const res = await fetch(`${BASE}/facets`);
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error);
+  return data;
+}
+
 export {
   fetchExperiences,
   fetchExperienceById,
   fetchMyExperiences,
+  fetchFacets,
   createExperience,
   updateExperience,
   deleteExperience,

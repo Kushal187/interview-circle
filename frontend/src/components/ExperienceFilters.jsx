@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import PropTypes from "prop-types";
+import { fetchFacets } from "../services/experienceService";
 import "./ExperienceFilters.css";
 
 const ROUNDS = [
@@ -16,6 +17,17 @@ function ExperienceFilters({ onFilter }) {
   const [company, setCompany] = useState("");
   const [role, setRole] = useState("");
   const [round, setRound] = useState("");
+  const [companies, setCompanies] = useState([]);
+  const [roles, setRoles] = useState([]);
+
+  useEffect(() => {
+    fetchFacets()
+      .then((data) => {
+        setCompanies(data.companies);
+        setRoles(data.roles);
+      })
+      .catch(() => {});
+  }, []);
 
   const handleApply = (e) => {
     e.preventDefault();
@@ -37,10 +49,16 @@ function ExperienceFilters({ onFilter }) {
             <Form.Label className="ic-filter-label">Company</Form.Label>
             <Form.Control
               size="sm"
+              list="ic-company-options"
               value={company}
               onChange={(e) => setCompany(e.target.value)}
-              placeholder="Filter by company"
+              placeholder="Search companies"
             />
+            <datalist id="ic-company-options">
+              {companies.map((c) => (
+                <option key={c} value={c} />
+              ))}
+            </datalist>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -48,10 +66,16 @@ function ExperienceFilters({ onFilter }) {
             <Form.Label className="ic-filter-label">Role</Form.Label>
             <Form.Control
               size="sm"
+              list="ic-role-options"
               value={role}
               onChange={(e) => setRole(e.target.value)}
-              placeholder="Filter by role"
+              placeholder="Search roles"
             />
+            <datalist id="ic-role-options">
+              {roles.map((r) => (
+                <option key={r} value={r} />
+              ))}
+            </datalist>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -72,7 +96,7 @@ function ExperienceFilters({ onFilter }) {
           </Form.Group>
         </Col>
         <Col md={3} className="mb-2 d-flex gap-2">
-          <Button type="submit" size="sm" className="ic-filter-btn">
+          <Button type="submit" className="ic-filter-btn">
             Apply
           </Button>
           <Button
