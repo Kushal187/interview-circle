@@ -31,7 +31,9 @@ function EditExperiencePage() {
 
   const handleSubmit = async (data) => {
     await updateExperience(id, data);
-    navigate("/my-submissions");
+    navigate("/my-submissions", {
+      state: { flash: "Changes saved successfully." },
+    });
   };
 
   if (loading) {

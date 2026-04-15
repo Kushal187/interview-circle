@@ -3,6 +3,12 @@
   padding-top: 1rem;
 }
 
+.ic-my-subs .ic-flash {
+  border-radius: 8px;
+  font-size: 0.92rem;
+  margin-bottom: 1rem;
+}
+
 .ic-new-btn {
   background-color: #1e1c19;
   border-color: #1e1c19;

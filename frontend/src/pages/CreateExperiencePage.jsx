@@ -9,7 +9,9 @@ function CreateExperiencePage() {
 
   const handleSubmit = async (data) => {
     await createExperience(data);
-    navigate("/my-submissions");
+    navigate("/my-submissions", {
+      state: { flash: "Experience submitted successfully!" },
+    });
   };
 
   return (
