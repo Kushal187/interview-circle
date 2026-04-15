@@ -115,6 +115,9 @@ function ExperienceDetailPage() {
         <div>
           <h1 className="ic-detail-company">{experience.company}</h1>
           <h2 className="ic-detail-role">{experience.role}</h2>
+          {experience.location && (
+            <p className="ic-detail-location">{experience.location}</p>
+          )}
         </div>
         {isOwner && (
           <div className="ic-detail-actions">

@@ -36,6 +36,13 @@
   color: #756b60;
 }
 
+.ic-detail-location {
+  font-size: 0.9rem;
+  color: #9b9488;
+  margin-top: 0.15rem;
+  margin-bottom: 0;
+}
+
 .ic-detail-actions {
   display: flex;
   gap: 0.5rem;

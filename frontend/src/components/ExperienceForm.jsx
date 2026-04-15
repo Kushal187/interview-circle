@@ -24,6 +24,7 @@ const OUTCOMES = ["Accepted", "Rejected", "Ghosted", "Pending"];
 
 function ExperienceForm({ initialData, onSubmit, submitLabel }) {
   const [company, setCompany] = useState("");
+  const [location, setLocation] = useState("");
   const [role, setRole] = useState("");
   const [interviewRound, setInterviewRound] = useState("");
   const [interviewFormat, setInterviewFormat] = useState("");
@@ -40,6 +41,7 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
   useEffect(() => {
     if (initialData) {
       setCompany(initialData.company || "");
+      setLocation(initialData.location || "");
       setRole(initialData.role || "");
       setInterviewRound(initialData.interviewRound || "");
       setInterviewFormat(initialData.interviewFormat || "");
@@ -83,6 +85,7 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
     try {
       await onSubmit({
         company: company.trim(),
+        location: location.trim() || undefined,
         role: role.trim(),
         interviewRound,
         interviewFormat,
@@ -116,7 +119,7 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
             />
           </Form.Group>
         </Col>
-        <Col md={6}>
+        <Col md={3}>
           <Form.Group className="mb-3">
             <Form.Label>Role *</Form.Label>
             <Form.Control
@@ -124,6 +127,16 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
               onChange={(e) => setRole(e.target.value)}
               placeholder="e.g. Software Engineer"
               required
+            />
+          </Form.Group>
+        </Col>
+        <Col md={3}>
+          <Form.Group className="mb-3">
+            <Form.Label>Location</Form.Label>
+            <Form.Control
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              placeholder="e.g. San Francisco, CA"
             />
           </Form.Group>
         </Col>
@@ -258,6 +271,7 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
 ExperienceForm.propTypes = {
   initialData: PropTypes.shape({
     company: PropTypes.string,
+    location: PropTypes.string,
     role: PropTypes.string,
     interviewRound: PropTypes.string,
     interviewFormat: PropTypes.string,

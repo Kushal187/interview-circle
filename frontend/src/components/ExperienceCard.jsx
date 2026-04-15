@@ -36,6 +36,9 @@ function ExperienceCard({ experience }) {
               {experience.company}
             </Link>
             <p className="ic-exp-role mb-0">{experience.role}</p>
+            {experience.location && (
+              <p className="ic-exp-location mb-0">{experience.location}</p>
+            )}
           </div>
           <Badge
             bg={DIFFICULTY_COLORS[experience.difficultyLevel] || "secondary"}
@@ -80,6 +83,7 @@ ExperienceCard.propTypes = {
     _id: PropTypes.string.isRequired,
     company: PropTypes.string.isRequired,
     role: PropTypes.string.isRequired,
+    location: PropTypes.string,
     interviewRound: PropTypes.string.isRequired,
     interviewFormat: PropTypes.string,
     difficultyLevel: PropTypes.string.isRequired,

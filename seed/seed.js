@@ -89,6 +89,27 @@ const FORMATS = [
   "Other",
 ];
 
+const LOCATIONS = [
+  "San Francisco, CA",
+  "New York, NY",
+  "Seattle, WA",
+  "Austin, TX",
+  "Boston, MA",
+  "Chicago, IL",
+  "Los Angeles, CA",
+  "Denver, CO",
+  "Atlanta, GA",
+  "Remote",
+  "Menlo Park, CA",
+  "Mountain View, CA",
+  "San Jose, CA",
+  "Redmond, WA",
+  "Pittsburgh, PA",
+  "",
+  "",
+  "",
+];
+
 const DIFFICULTIES = ["Easy", "Medium", "Hard"];
 const OUTCOMES = ["Accepted", "Rejected", "Ghosted", "Pending"];
 
@@ -260,6 +281,7 @@ async function seed() {
 
     experienceDocs.push({
       company: randomItem(COMPANIES),
+      location: randomItem(LOCATIONS),
       role: randomItem(ROLES),
       interviewRound: randomItem(ROUNDS),
       interviewFormat: randomItem(FORMATS),

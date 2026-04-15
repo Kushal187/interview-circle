@@ -5,6 +5,7 @@ async function createExperience(req, res) {
   try {
     const {
       company,
+      location,
       role,
       interviewRound,
       interviewFormat,
@@ -28,6 +29,7 @@ async function createExperience(req, res) {
 
     const doc = {
       company: company.trim(),
+      location: location ? location.trim() : "",
       role: role.trim(),
       interviewRound,
       interviewFormat: interviewFormat || "",
@@ -242,6 +244,7 @@ async function updateExperience(req, res) {
 
     const {
       company,
+      location,
       role,
       interviewRound,
       interviewFormat,
@@ -256,6 +259,7 @@ async function updateExperience(req, res) {
 
     const updates = {
       ...(company && { company: company.trim() }),
+      ...(location !== undefined && { location: location.trim() }),
       ...(role && { role: role.trim() }),
       ...(interviewRound && { interviewRound }),
       ...(interviewFormat !== undefined && { interviewFormat }),
