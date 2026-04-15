@@ -332,10 +332,31 @@ async function getMyExperiences(req, res) {
   }
 }
 
+async function getExperienceFacets(req, res) {
+  try {
+    const db = await connectDB();
+    const col = db.collection("interviewExperiences");
+
+    const [companies, roles] = await Promise.all([
+      col.distinct("company"),
+      col.distinct("role"),
+    ]);
+
+    const collator = new Intl.Collator("en", { sensitivity: "base" });
+    companies.sort(collator.compare);
+    roles.sort(collator.compare);
+
+    res.json({ companies, roles });
+  } catch {
+    res.status(500).json({ error: "Failed to fetch facets" });
+  }
+}
+
 export {
   createExperience,
   getAllExperiences,
   getExperienceById,
+  getExperienceFacets,
   updateExperience,
   deleteExperience,
   getMyExperiences,

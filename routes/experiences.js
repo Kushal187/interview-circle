@@ -3,6 +3,7 @@ import {
   createExperience,
   getAllExperiences,
   getExperienceById,
+  getExperienceFacets,
   updateExperience,
   deleteExperience,
   getMyExperiences,
@@ -12,6 +13,7 @@ import ensureAuthenticated from "../middleware/auth.js";
 const router = express.Router();
 
 router.get("/", getAllExperiences);
+router.get("/facets", getExperienceFacets);
 router.get("/mine/list", ensureAuthenticated, getMyExperiences);
 router.get("/:id", getExperienceById);
 router.post("/", ensureAuthenticated, createExperience);
