@@ -10,8 +10,30 @@
   font-size: 0.85rem;
 }
 
+.ic-outdated-btn-locked {
+  opacity: 0.75;
+  font-style: normal;
+  border-style: dashed;
+}
+
+.ic-outdated-btn-locked:hover {
+  opacity: 1;
+  border-style: solid;
+}
+
 .ic-outdated-flag .ic-outdated-count {
   font-weight: 600;
   font-size: 0.9rem;
   color: #e5a100;
+}
+
+.ic-outdated-flag .ic-outdated-login-link {
+  font-size: 0.82rem;
+  color: #9b5740;
+  text-decoration: underline;
+  margin-left: 0.1rem;
+}
+
+.ic-outdated-flag .ic-outdated-login-link:hover {
+  color: #7a4430;
 }

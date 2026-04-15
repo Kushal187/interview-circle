@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { Button } from "react-bootstrap";
+import { Link, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { UserContext } from "../context/UserContext";
 import {
@@ -11,6 +12,8 @@ import "./OutdatedFlag.css";
 
 function OutdatedFlag({ experienceId, signalData, onSignalChange }) {
   const { user } = useContext(UserContext);
+  const location = useLocation();
+  const loginTo = `/login?returnTo=${encodeURIComponent(location.pathname + location.search)}`;
   const [outdatedCount, setOutdatedCount] = useState(0);
   const [isOutdated, setIsOutdated] = useState(false);
   const [hasSignal, setHasSignal] = useState(false);
@@ -55,17 +58,34 @@ function OutdatedFlag({ experienceId, signalData, onSignalChange }) {
 
   return (
     <div className="ic-outdated-flag">
-      <Button
-        size="sm"
-        variant={isOutdated ? "warning" : "outline-secondary"}
-        onClick={handleToggle}
-        disabled={!user}
-        className="ic-outdated-btn"
-        title={user ? "Flag as outdated" : "Log in to flag"}
-      >
-        &#9888; Outdated
-      </Button>
+      {user ? (
+        <Button
+          size="sm"
+          variant={isOutdated ? "warning" : "outline-secondary"}
+          onClick={handleToggle}
+          className="ic-outdated-btn"
+          title="Flag as outdated"
+        >
+          &#9888; Outdated
+        </Button>
+      ) : (
+        <Button
+          as={Link}
+          to={loginTo}
+          size="sm"
+          variant="outline-secondary"
+          className="ic-outdated-btn ic-outdated-btn-locked"
+          title="Log in to flag"
+        >
+          &#128274; Outdated
+        </Button>
+      )}
       <span className="ic-outdated-count">{outdatedCount}</span>
+      {!user && (
+        <Link to={loginTo} className="ic-outdated-login-link">
+          Log in to flag
+        </Link>
+      )}
     </div>
   );
 }

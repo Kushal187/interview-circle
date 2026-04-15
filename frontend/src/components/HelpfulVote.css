@@ -10,8 +10,30 @@
   font-size: 0.85rem;
 }
 
+.ic-helpful-btn-locked {
+  opacity: 0.75;
+  font-style: normal;
+  border-style: dashed;
+}
+
+.ic-helpful-btn-locked:hover {
+  opacity: 1;
+  border-style: solid;
+}
+
 .ic-helpful-vote .ic-helpful-count {
   font-weight: 600;
   font-size: 0.9rem;
   color: #198754;
+}
+
+.ic-helpful-vote .ic-helpful-login-link {
+  font-size: 0.82rem;
+  color: #9b5740;
+  text-decoration: underline;
+  margin-left: 0.1rem;
+}
+
+.ic-helpful-vote .ic-helpful-login-link:hover {
+  color: #7a4430;
 }
