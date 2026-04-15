@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext, useCallback } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate, useLocation, Link } from "react-router-dom";
 import { Container, Badge, Spinner, Button, Modal } from "react-bootstrap";
 import { UserContext } from "../context/UserContext";
 import HelpfulVote from "../components/HelpfulVote";
@@ -15,6 +15,8 @@ function ExperienceDetailPage() {
   const { id } = useParams();
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const cameFromSubmissions = location.state?.from === "my-submissions";
   const [experience, setExperience] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -106,8 +108,14 @@ function ExperienceDetailPage() {
 
   return (
     <Container className="ic-detail-page">
-      <Link to="/browse" className="ic-back-link">
-        &larr; Back to all experiences
+      <Link
+        to={cameFromSubmissions ? "/my-submissions" : "/browse"}
+        className="ic-back-link"
+      >
+        &larr;{" "}
+        {cameFromSubmissions
+          ? "Back to My Submissions"
+          : "Back to all experiences"}
       </Link>
 
       <div className="ic-detail-header">
@@ -216,10 +224,7 @@ function ExperienceDetailPage() {
           undone.
         </Modal.Body>
         <Modal.Footer>
-          <Button
-            variant="secondary"
-            onClick={() => setShowDeleteModal(false)}
-          >
+          <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
             Cancel
           </Button>
           <Button variant="danger" onClick={handleDelete}>

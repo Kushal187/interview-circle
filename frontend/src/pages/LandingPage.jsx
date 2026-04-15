@@ -27,9 +27,7 @@ function LandingPage() {
                 to={user ? "/submit" : "/login?returnTo=/submit"}
                 className="lp-btn-secondary"
               >
-                {user
-                  ? "Share your recent interview"
-                  : "Share Your Experience"}
+                {user ? "Share your recent interview" : "Share Your Experience"}
               </Link>
             </div>
           </div>

@@ -58,15 +58,11 @@ function AutocompleteInput({ value, onChange, options, placeholder, id }) {
     switch (e.key) {
       case "ArrowDown":
         e.preventDefault();
-        setActiveIndex((prev) =>
-          prev < filtered.length - 1 ? prev + 1 : 0,
-        );
+        setActiveIndex((prev) => (prev < filtered.length - 1 ? prev + 1 : 0));
         break;
       case "ArrowUp":
         e.preventDefault();
-        setActiveIndex((prev) =>
-          prev > 0 ? prev - 1 : filtered.length - 1,
-        );
+        setActiveIndex((prev) => (prev > 0 ? prev - 1 : filtered.length - 1));
         break;
       case "Enter":
         e.preventDefault();
@@ -104,11 +100,7 @@ function AutocompleteInput({ value, onChange, options, placeholder, id }) {
         aria-autocomplete="list"
       />
       {isOpen && (
-        <ul
-          className="ic-autocomplete-list"
-          id={listboxId}
-          role="listbox"
-        >
+        <ul className="ic-autocomplete-list" id={listboxId} role="listbox">
           {filtered.map((item, i) => (
             <li
               key={item}

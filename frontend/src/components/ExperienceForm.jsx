@@ -106,7 +106,11 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
 
   return (
     <Form onSubmit={handleSubmit} className="ic-experience-form">
-      {error && <div className="alert alert-danger" role="alert">{error}</div>}
+      {error && (
+        <div className="alert alert-danger" role="alert">
+          {error}
+        </div>
+      )}
       <Row>
         <Col md={6}>
           <Form.Group className="mb-3">

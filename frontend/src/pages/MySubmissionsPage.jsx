@@ -153,6 +153,7 @@ function MySubmissionsPage() {
                 <td className="ic-actions-cell">
                   <Link
                     to={`/experience/${exp._id}`}
+                    state={{ from: "my-submissions" }}
                     className="btn btn-sm btn-outline-secondary me-2"
                   >
                     View
