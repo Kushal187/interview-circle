@@ -64,6 +64,22 @@ a:hover {
   --bs-badge-bg: #1e1c19;
 }
 
+.badge.bg-warning,
+.badge.bg-info {
+  color: #1e1c19;
+}
+
+.btn-outline-secondary {
+  --bs-btn-color: #4a4540;
+  --bs-btn-border-color: #4a4540;
+  --bs-btn-hover-bg: #4a4540;
+  --bs-btn-hover-border-color: #4a4540;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-active-bg: #3b352e;
+  --bs-btn-active-border-color: #3b352e;
+  --bs-btn-active-color: #fff;
+}
+
 .form-control:focus,
 .form-select:focus {
   border-color: #a09889;

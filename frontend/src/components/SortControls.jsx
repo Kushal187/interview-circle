@@ -5,8 +5,11 @@ import "./SortControls.css";
 function SortControls({ currentSort, onSortChange }) {
   return (
     <div className="ic-sort-controls">
-      <Form.Label className="ic-sort-label">Sort by</Form.Label>
+      <Form.Label htmlFor="ic-sort-select" className="ic-sort-label">
+        Sort by
+      </Form.Label>
       <Form.Select
+        id="ic-sort-select"
         size="sm"
         value={currentSort}
         onChange={(e) => onSortChange(e.target.value)}

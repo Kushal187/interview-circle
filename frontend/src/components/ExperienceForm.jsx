@@ -113,7 +113,7 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
       )}
       <Row>
         <Col md={6}>
-          <Form.Group className="mb-3">
+          <Form.Group className="mb-3" controlId="exp-company">
             <Form.Label>Company *</Form.Label>
             <Form.Control
               value={company}
@@ -124,7 +124,7 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
           </Form.Group>
         </Col>
         <Col md={3}>
-          <Form.Group className="mb-3">
+          <Form.Group className="mb-3" controlId="exp-role">
             <Form.Label>Role *</Form.Label>
             <Form.Control
               value={role}
@@ -135,7 +135,7 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
           </Form.Group>
         </Col>
         <Col md={3}>
-          <Form.Group className="mb-3">
+          <Form.Group className="mb-3" controlId="exp-location">
             <Form.Label>Location</Form.Label>
             <Form.Control
               value={location}
@@ -147,7 +147,7 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
       </Row>
       <Row>
         <Col md={4}>
-          <Form.Group className="mb-3">
+          <Form.Group className="mb-3" controlId="exp-round">
             <Form.Label>Interview Round *</Form.Label>
             <Form.Select
               value={interviewRound}
@@ -164,7 +164,7 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
           </Form.Group>
         </Col>
         <Col md={4}>
-          <Form.Group className="mb-3">
+          <Form.Group className="mb-3" controlId="exp-format">
             <Form.Label>Format</Form.Label>
             <Form.Select
               value={interviewFormat}
@@ -180,7 +180,7 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
           </Form.Group>
         </Col>
         <Col md={4}>
-          <Form.Group className="mb-3">
+          <Form.Group className="mb-3" controlId="exp-difficulty">
             <Form.Label>Difficulty *</Form.Label>
             <Form.Select
               value={difficultyLevel}
@@ -197,7 +197,7 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
           </Form.Group>
         </Col>
       </Row>
-      <Form.Group className="mb-3">
+      <Form.Group className="mb-3" controlId="exp-themes">
         <Form.Label>Question Themes</Form.Label>
         <Form.Control
           value={questionThemes}
@@ -206,7 +206,7 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
         />
         <Form.Text className="text-muted">Comma-separated list</Form.Text>
       </Form.Group>
-      <Form.Group className="mb-3">
+      <Form.Group className="mb-3" controlId="exp-format-notes">
         <Form.Label>Format Notes</Form.Label>
         <Form.Control
           as="textarea"
@@ -216,7 +216,7 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
           placeholder="Describe the interview format..."
         />
       </Form.Group>
-      <Form.Group className="mb-3">
+      <Form.Group className="mb-3" controlId="exp-surprised">
         <Form.Label>What Surprised Me</Form.Label>
         <Form.Control
           as="textarea"
@@ -228,7 +228,7 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
       </Form.Group>
       <Row>
         <Col md={4}>
-          <Form.Group className="mb-3">
+          <Form.Group className="mb-3" controlId="exp-outcome">
             <Form.Label>Outcome</Form.Label>
             <Form.Select
               value={outcomeTag}
@@ -243,7 +243,7 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
           </Form.Group>
         </Col>
         <Col md={4}>
-          <Form.Group className="mb-3">
+          <Form.Group className="mb-3" controlId="exp-date">
             <Form.Label>Interview Date</Form.Label>
             <Form.Control
               type="date"
@@ -254,6 +254,7 @@ function ExperienceForm({ initialData, onSubmit, submitLabel }) {
         </Col>
         <Col md={4} className="d-flex align-items-center pt-3">
           <Form.Check
+            id="exp-anonymous"
             type="checkbox"
             label="Post anonymously"
             checked={isAnonymous}

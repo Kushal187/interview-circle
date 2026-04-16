@@ -46,3 +46,7 @@
   font-size: 0.9rem;
   color: #756b60;
 }
+
+.ic-auth-footer a {
+  text-decoration: underline;
+}

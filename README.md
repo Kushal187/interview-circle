@@ -55,27 +55,27 @@ InterviewCircle solves this by allowing students to submit interview experiences
 
 ### Color Palette
 
-| Color | Hex | Usage |
-| ----- | --- | ----- |
-| Ink | `#1e1c19` | Primary text, headings, buttons |
-| Paper | `#faf8f4` | Page background |
-| Warm Paper | `#f3ede2` | Landing page background |
-| Muted | `#756b60` | Secondary text, labels, captions |
-| Accent | `#9b5740` | Links, hover states, theme tags |
-| Border | `#ddd8d0` | Card borders, dividers, input borders |
+| Color      | Hex       | Usage                                 |
+| ---------- | --------- | ------------------------------------- |
+| Ink        | `#1e1c19` | Primary text, headings, buttons       |
+| Paper      | `#faf8f4` | Page background                       |
+| Warm Paper | `#f3ede2` | Landing page background               |
+| Muted      | `#756b60` | Secondary text, labels, captions      |
+| Accent     | `#9b5740` | Links, hover states, theme tags       |
+| Border     | `#ddd8d0` | Card borders, dividers, input borders |
 
 The palette is intentionally warm and muted, drawing from paper and ink tones to create a calm, editorial feel that keeps the focus on content rather than chrome.
 
 ### Font Pairing
 
-| Font | Type | Usage |
-| ---- | ---- | ----- |
-| [Newsreader](https://fonts.google.com/specimen/Newsreader) | Serif | Headings, company names, section titles |
+| Font                                                                 | Type       | Usage                                     |
+| -------------------------------------------------------------------- | ---------- | ----------------------------------------- |
+| [Newsreader](https://fonts.google.com/specimen/Newsreader)           | Serif      | Headings, company names, section titles   |
 | [Instrument Sans](https://fonts.google.com/specimen/Instrument+Sans) | Sans-serif | Body text, labels, buttons, form controls |
 
 **Why these fonts:** Newsreader is an editorial serif that gives headings a professional, trustworthy feel appropriate for interview content. Instrument Sans is a clean geometric sans-serif that pairs well for UI text — it's highly readable at small sizes and keeps the interface feeling modern without competing with the headings.
 
-### Design Principles 
+### Design Principles
 
 - **Contrast:** Dark ink text on warm white backgrounds creates strong readability. Colored badges (green for Accepted, red for Hard/Rejected, yellow for Medium/Pending) draw attention to key metadata. The accent color is reserved for interactive elements like links and theme tags.
 - **Repetition:** Every experience card uses the same layout — company name, role, badges, themes, and footer. The same badge styles, button variants, and section heading patterns repeat across the browse page, detail page, and submission form. Filter controls and action buttons use consistent sizing and weight.

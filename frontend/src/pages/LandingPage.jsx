@@ -38,7 +38,7 @@ function LandingPage() {
         <div className="lp-section-inner">
           <div className="lp-pitch-grid">
             <div className="lp-pitch-block">
-              <h3 className="lp-pitch-title">Specific, not generic</h3>
+              <h2 className="lp-pitch-title">Specific, not generic</h2>
               <p className="lp-pitch-text">
                 Most interview advice is the same recycled tips. Here you get
                 accounts tied to a real company and a real role — what the
@@ -47,9 +47,9 @@ function LandingPage() {
               </p>
             </div>
             <div className="lp-pitch-block">
-              <h3 className="lp-pitch-title">
+              <h2 className="lp-pitch-title">
                 Written by people who were just there
-              </h3>
+              </h2>
               <p className="lp-pitch-text">
                 Every post comes from someone who recently sat through the
                 process. No outdated Glassdoor reviews from 2018, no secondhand
@@ -57,7 +57,7 @@ function LandingPage() {
               </p>
             </div>
             <div className="lp-pitch-block">
-              <h3 className="lp-pitch-title">Context you can trust</h3>
+              <h2 className="lp-pitch-title">Context you can trust</h2>
               <p className="lp-pitch-text">
                 Each experience includes difficulty rating, outcome, interview
                 round, and timeline. Other users vote on helpfulness and flag
@@ -75,7 +75,7 @@ function LandingPage() {
             <div className="lp-how-item">
               <span className="lp-how-num">1</span>
               <div>
-                <h4 className="lp-how-title">Find your target company</h4>
+                <h3 className="lp-how-title">Find your target company</h3>
                 <p className="lp-how-desc">
                   Search or filter by company name. If someone interviewed there
                   recently, you&apos;ll find their write-up.
@@ -85,9 +85,9 @@ function LandingPage() {
             <div className="lp-how-item">
               <span className="lp-how-num">2</span>
               <div>
-                <h4 className="lp-how-title">
+                <h3 className="lp-how-title">
                   Read what the process looked like
-                </h4>
+                </h3>
                 <p className="lp-how-desc">
                   How many rounds, what topics came up, how the interviewers
                   behaved, whether the timeline dragged. The stuff job postings
@@ -98,7 +98,7 @@ function LandingPage() {
             <div className="lp-how-item">
               <span className="lp-how-num">3</span>
               <div>
-                <h4 className="lp-how-title">Come back and share yours</h4>
+                <h3 className="lp-how-title">Come back and share yours</h3>
                 <p className="lp-how-desc">
                   After your own interview, write it up. Takes five minutes. The
                   next person prepping for that company will thank you.
