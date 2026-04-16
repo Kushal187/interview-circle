@@ -54,10 +54,10 @@ function RegisterPage() {
     <Container className="ic-register-page">
       <Card className="ic-auth-card">
         <Card.Body>
-          <h2 className="ic-auth-title">Create an Account</h2>
+          <h1 className="ic-auth-title">Create an Account</h1>
           {error && <div className="alert alert-danger">{error}</div>}
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3">
+            <Form.Group className="mb-3" controlId="register-username">
               <Form.Label>Username</Form.Label>
               <Form.Control
                 value={username}
@@ -66,7 +66,7 @@ function RegisterPage() {
                 required
               />
             </Form.Group>
-            <Form.Group className="mb-3">
+            <Form.Group className="mb-3" controlId="register-email">
               <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
@@ -76,7 +76,7 @@ function RegisterPage() {
                 required
               />
             </Form.Group>
-            <Form.Group className="mb-3">
+            <Form.Group className="mb-3" controlId="register-password">
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
@@ -86,7 +86,7 @@ function RegisterPage() {
                 required
               />
             </Form.Group>
-            <Form.Group className="mb-3">
+            <Form.Group className="mb-3" controlId="register-confirm-password">
               <Form.Label>Confirm Password</Form.Label>
               <Form.Control
                 type="password"

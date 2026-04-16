@@ -54,7 +54,7 @@ function EditExperiencePage() {
 
   return (
     <Container className="ic-edit-page">
-      <h2 className="ic-page-title">Edit Experience</h2>
+      <h1 className="ic-page-title">Edit Experience</h1>
       <ExperienceForm
         initialData={experience}
         onSubmit={handleSubmit}

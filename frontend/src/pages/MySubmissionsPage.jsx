@@ -108,7 +108,7 @@ function MySubmissionsPage() {
         </Alert>
       )}
       <div className="d-flex justify-content-between align-items-center mb-3">
-        <h2 className="ic-page-title mb-0">My Submissions</h2>
+        <h1 className="ic-page-title mb-0">My Submissions</h1>
         <Button as={Link} to="/submit" className="ic-new-btn" size="sm">
           + New Experience
         </Button>

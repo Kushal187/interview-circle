@@ -42,10 +42,10 @@ function LoginPage() {
     <Container className="ic-login-page">
       <Card className="ic-auth-card">
         <Card.Body>
-          <h2 className="ic-auth-title">Log In</h2>
+          <h1 className="ic-auth-title">Log In</h1>
           {error && <div className="alert alert-danger">{error}</div>}
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3">
+            <Form.Group className="mb-3" controlId="login-username">
               <Form.Label>Username</Form.Label>
               <Form.Control
                 value={username}
@@ -54,7 +54,7 @@ function LoginPage() {
                 required
               />
             </Form.Group>
-            <Form.Group className="mb-3">
+            <Form.Group className="mb-3" controlId="login-password">
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"

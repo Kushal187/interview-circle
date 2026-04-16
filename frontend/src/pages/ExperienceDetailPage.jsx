@@ -224,7 +224,10 @@ function ExperienceDetailPage() {
           undone.
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
+          <Button
+            variant="outline-secondary"
+            onClick={() => setShowDeleteModal(false)}
+          >
             Cancel
           </Button>
           <Button variant="danger" onClick={handleDelete}>

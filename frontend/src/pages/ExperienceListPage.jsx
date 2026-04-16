@@ -47,7 +47,7 @@ function ExperienceListPage() {
 
   return (
     <Container className="ic-list-page">
-      <h2 className="ic-page-title">Interview Experiences</h2>
+      <h1 className="ic-page-title">Interview Experiences</h1>
       <ExperienceFilters onFilter={handleFilter} />
       <div className="d-flex justify-content-between align-items-center mb-3">
         <span className="text-muted ic-result-count">
