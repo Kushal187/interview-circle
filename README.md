@@ -19,7 +19,7 @@ A student-focused platform for sharing structured interview experiences — filt
 
 [View Deployed App](https://interview-circle.onrender.com)
 
-[View Demo Video](https://youtu.be/MRJ_AEgSbcM)
+[View Demo Video](https://youtu.be/gV_Mh06K-2s)
 
 [View Design Document](https://drive.google.com/file/d/1AevZGUlXZkUT2PzhNpeC4g2NXxyohoiA/view?usp=sharing)
 
@@ -86,7 +86,7 @@ The palette is intentionally warm and muted, drawing from paper and ink tones to
 
 We conducted a usability study with 5 participants. The study identified 8 prioritized issues, all of which have been addressed in the final project.
 
-Full study report: [assignment4-usability-report.md](assignment4-usability-report.md)
+Full study report: [Usability Study Report - Interview Circle.pdf](Usability%20Study%20Report%20-%20Interview%20Circle.pdf)
 
 ## Accessibility (WCAG 2.0)
 
