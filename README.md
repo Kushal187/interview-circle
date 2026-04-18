@@ -86,7 +86,7 @@ The palette is intentionally warm and muted, drawing from paper and ink tones to
 
 We conducted a usability study with 5 participants. The study identified 8 prioritized issues, all of which have been addressed in the final project.
 
-Full study report: [Usability Study Report - Interview Circle.pdf](Usability%20Study%20Report%20-%20Interview%20Circle.pdf)
+Full study report: [Usability Study Report - Interview Circle.pdf](https://drive.google.com/file/d/1UjISxZBPAnttNz_7z0xxEQWrupt2EceK/view?usp=sharing)
 
 ## Accessibility (WCAG 2.0)
 
